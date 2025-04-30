@@ -1,36 +1,71 @@
-<!-- contact.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact - MyCode12</title>
-</head>
-<body>
-  <div id="header"></div>
+/* 전체 레이아웃을 세로 비율 기준으로 설정 */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+}
 
-  <main>
-    <p>문의사항은 아래 이메일로 연락 주세요.</p>
-    <p>Email: <a href="mailto:gmgm2gmgm@gmail.com">gmgm2gmgm@gmail.com</a></p>
-  </main>
+/* 각각 비율 설정 */
+#header {
+  height: 20vh;
+  background: #222;
+  color: #fff;
+  padding: 1rem;
+  box-sizing: border-box;
+  overflow: auto;
+}
 
-  <div id="footer"></div>
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
 
-  <script>
-    // Load header
-    fetch("header.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("header").innerHTML = data;
-      });
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
 
-    // Load footer
-    fetch("footer.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("footer").innerHTML = data;
-      });
-  </script>
-</body>
-</html>
+main {
+  height: 70vh;
+  padding: 1rem;
+  box-sizing: border-box;
+  overflow: auto;
+  background: white;
+}
+
+#footer {
+  height: 10vh;
+  background: #f1f1f1;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+/* ✅ 모바일 최적화 */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav a {
+    font-size: 1.2rem;
+  }
+
+  h1, h2 {
+    font-size: 1.5rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+}
