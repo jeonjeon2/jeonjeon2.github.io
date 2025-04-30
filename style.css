@@ -1,21 +1,15 @@
-/* 전체 레이아웃을 그리드로 설정 */
-html, body {
-  height: 100%;
+/* style.css */
+body {
+  font-family: sans-serif;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
   line-height: 1.6;
-  display: grid;
-  grid-template-rows: 20vh 70vh 10vh; /* 각 영역의 비율 설정 */
-  grid-template-columns: 100%; /* 전체 화면을 한 열로 설정 */
 }
 
-/* header, main, footer 각 영역 */
-#header {
+header {
   background: #222;
   color: #fff;
   padding: 1rem;
-  box-sizing: border-box;
 }
 
 nav {
@@ -33,15 +27,13 @@ nav a {
 
 main {
   padding: 1rem;
-  box-sizing: border-box;
-  background: white;
-  overflow: auto;
 }
 
-#footer {
+footer {
   background: #f1f1f1;
   text-align: center;
   padding: 1rem;
+  margin-top: 2rem;
   font-size: 0.9rem;
 }
 
