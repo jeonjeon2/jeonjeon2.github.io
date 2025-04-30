@@ -1,55 +1,70 @@
-/* style.css */
+/* 기본 스타일 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  padding: 0;
-  line-height: 1.6;
-  margin: 20px;  /* 원하는 여백 값 */
-  font-family: Arial, sans-serif;  /* 기본 폰트 설정 */
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
 }
 
-header {
-  background: #222;
-  color: #fff;
-  padding: 1rem;
+.header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
 }
 
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 0.5rem;
+.header nav ul {
+    list-style-type: none;
+    text-align: center;
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  font-size: 1rem;
+.header nav ul li {
+    display: inline;
+    margin: 0 15px;
 }
 
-main {
-  padding: 20px;  /* main 태그에 추가적인 여백을 줄 수도 있음 */
+.header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
 }
 
-footer {
-  text-align: center;
-  padding: 10px;
+.content {
+    margin-top: 20px;
 }
 
-/* ✅ 모바일 최적화 */
+.content-top {
+    background-color: #e0e0e0;
+    padding: 20px;
+}
+
+.content-middle {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.content-bottom {
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+}
+
+.footer {
+    background-color: #d3d3d3;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+/* 모바일 최적화 */
 @media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  nav a {
-    font-size: 1.2rem;
-  }
-
-  h1, h2 {
-    font-size: 1.5rem;
-  }
-
-  main {
-    padding: 1rem;
-  }
+    .header nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
 }
