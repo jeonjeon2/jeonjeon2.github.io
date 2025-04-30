@@ -8,6 +8,15 @@
   <title>Contact - MyCode12</title>
 </head>
 <body>
+  <div id="header"></div>
+
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+  </script>
   <h1>Contact Us</h1>
   <p>Email: support@mycode12.com</p>
 </body>
