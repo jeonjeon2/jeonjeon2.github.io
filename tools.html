@@ -1,29 +1,41 @@
-<!-- tools.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-  <link rel="stylesheet" href="style.css" />
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tools - MyCode12</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>도구</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="header"></div>
+    <!-- 상단 헤더 -->
+    <div class="header">
+        <nav>
+            <ul>
+                <li><a href="index.html">홈</a></li>
+                <li><a href="about.html">소개</a></li>
+                <li><a href="privacy.html">개인정보처리방침</a></li>
+                <li><a href="contact.html">연락처</a></li>
+                <li><a href="tools.html">도구</a></li>
+            </ul>
+        </nav>
+    </div>
 
-  <script>
-    fetch("header.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("header").innerHTML = data;
-      });
-  </script>
-  <h1>Our Tools</h1>
-  <ul>
-    <li><strong>Interest Calculator:</strong> Calculate simple and compound interest.</li>
-    <li><strong>Margin Calculator:</strong> Estimate profit margins quickly.</li>
-    <li><strong>Percentage Calculator:</strong> Perform various percentage-related calculations.</li>
-    <li><strong>QR Code Generator:</strong> Create QR codes easily.</li>
-    <li><strong>Barcode Generator:</strong> Generate standard barcodes.</li>
-  </ul>
+    <!-- 중단 -->
+    <div class="content">
+        <div class="content-top">
+            <h1>도구</h1>
+        </div>
+        <div class="content-middle">
+            <p>여기는 도구 기능이 들어갑니다. 구글 애드센스 광고가 포함될 위치입니다.</p>
+        </div>
+        <div class="content-bottom">
+            <p>이것은 하단에 배치될 내용입니다.</p>
+        </div>
+    </div>
+
+    <!-- 하단 푸터 -->
+    <div class="footer">
+        <p>&copy; 2025 당신의 사이트. All rights reserved.</p>
+    </div>
 </body>
 </html>
