@@ -32,9 +32,9 @@ main {
 footer {
   background: #f1f1f1;
   text-align: center;
-  padding: 0.5rem;
-  margin-top: 1rem;
-  font-size: 0.9rem;
+  padding: 0.24rem;
+  margin-top: 0.6rem;
+  font-size: 0.5rem;
 }
 
 /* ✅ 모바일 최적화 */
