@@ -9,6 +9,15 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div id="header"></div>
+
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+  </script>
   <header>
     <h1>MyCode12</h1>
     <nav>
