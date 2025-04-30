@@ -10,16 +10,27 @@
 <body>
   <div id="header"></div>
 
+  <main>
+    <h1>Privacy Policy</h1>
+    <p>We do not collect any personal information from users. Third-party services like Google AdSense may collect data in accordance with their policies.</p>
+  </main>
+
+  <div id="footer"></div>
+
   <script>
+    // Load header
     fetch("header.html")
       .then(res => res.text())
       .then(data => {
         document.getElementById("header").innerHTML = data;
       });
+
+    // Load footer
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
   </script>
-  <main>
-    <h1>Privacy Policy</h1>
-    <p>We do not collect any personal information from users. Third-party services like Google AdSense may collect data in accordance with their policies.</p>
-  </main>
 </body>
 </html>
