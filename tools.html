@@ -8,6 +8,15 @@
   <title>Tools - MyCode12</title>
 </head>
 <body>
+  <div id="header"></div>
+
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+  </script>
   <h1>Our Tools</h1>
   <ul>
     <li><strong>Interest Calculator:</strong> Calculate simple and compound interest.</li>
