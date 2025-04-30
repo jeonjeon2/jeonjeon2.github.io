@@ -1,9 +1,9 @@
 /* style.css */
 body {
-  font-family: sans-serif;
-  margin: 0;
   padding: 0;
   line-height: 1.6;
+  margin: 20px;  /* 원하는 여백 값 */
+  font-family: Arial, sans-serif;  /* 기본 폰트 설정 */
 }
 
 header {
@@ -26,15 +26,12 @@ nav a {
 }
 
 main {
-  padding: 1rem;
+  padding: 20px;  /* main 태그에 추가적인 여백을 줄 수도 있음 */
 }
 
 footer {
-  background: #f1f1f1;
   text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
-  font-size: 0.9rem;
+  padding: 10px;
 }
 
 /* ✅ 모바일 최적화 */
