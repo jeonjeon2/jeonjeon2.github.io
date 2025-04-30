@@ -8,6 +8,15 @@
   <title>About - MyCode12</title>
 </head>
 <body>
+  <div id="header"></div>
+
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+  </script>
   <h1>About Us</h1>
   <p>MyCode12 is a site created to provide accessible, free tools for developers and general users, including calculators for interest, margin, and percentages.</p>
 </body>
