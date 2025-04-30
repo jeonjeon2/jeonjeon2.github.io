@@ -10,16 +10,27 @@
 <body>
   <div id="header"></div>
 
+  <main>
+    <h1>Contact Us</h1>
+    <p>Email: support@mycode12.com</p>
+  </main>
+
+  <div id="footer"></div>
+
   <script>
+    // Load header
     fetch("header.html")
       .then(res => res.text())
       .then(data => {
         document.getElementById("header").innerHTML = data;
       });
+
+    // Load footer
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
   </script>
-  <main>
-    <h1>Contact Us</h1>
-    <p>Email: support@mycode12.com</p>
-  </main>
 </body>
 </html>
