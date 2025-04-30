@@ -1,22 +1,15 @@
-/* 전체 레이아웃을 세로 비율 기준으로 설정 */
-html, body {
-  height: 100%;
+/* style.css */
+body {
+  font-family: sans-serif;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
   line-height: 1.6;
-  display: flex;
-  flex-direction: column;
 }
 
-/* 각각 비율 설정 */
-#header {
-  height: 20vh;
+header {
   background: #222;
   color: #fff;
   padding: 1rem;
-  box-sizing: border-box;
-  overflow: auto;
 }
 
 nav {
@@ -33,21 +26,15 @@ nav a {
 }
 
 main {
-  height: 70vh;
   padding: 1rem;
-  box-sizing: border-box;
-  overflow: auto;
-  background: white;
 }
 
-#footer {
-  height: 10vh;
+footer {
   background: #f1f1f1;
   text-align: center;
   padding: 1rem;
+  margin-top: 2rem;
   font-size: 0.9rem;
-  box-sizing: border-box;
-  overflow: auto;
 }
 
 /* ✅ 모바일 최적화 */
