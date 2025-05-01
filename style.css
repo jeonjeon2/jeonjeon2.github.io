@@ -37,6 +37,24 @@ footer {
   font-size: 0.9rem;
 }
 
+.tools-container {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  flex-wrap: wrap;
+}
+
+.tool-box {
+  flex: 1 1 45%;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  min-width: 300px;
+}
+
+
 /* ✅ 모바일 최적화 */
 @media (max-width: 768px) {
   nav {
