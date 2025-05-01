@@ -39,21 +39,23 @@ footer {
 
 .tools-container {
   display: flex;
-  gap: 2rem;
+  justify-content: center;
   padding: 2rem;
-  justify-content: space-between;
-  flex-wrap: wrap;
 }
 
 .tool-box {
-  flex: 1 1 45%;
-  min-width: 280px;
+  width: 100%;
+  max-width: 900px;
   border: 1px solid #ccc;
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 2rem;
   background-color: #f9f9f9;
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
   box-sizing: border-box;
+}
+
+.tool-section {
+  margin-bottom: 2rem;
 }
 
 
@@ -77,7 +79,8 @@ footer {
   main {
     padding: 1rem;
   }
-  .tool-box {
-    flex: 1 1 100%;
+
+  .tool-section {
+    margin-bottom: 1.5rem;
   }
 }
