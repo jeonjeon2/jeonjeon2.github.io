@@ -14,9 +14,9 @@
       <h2>계산기</h2>
       
       <div class="tool-section">
-        <button id="btn-a">a 계산</button>
+        <button id="btn-a">퍼센트</button>
         &nbsp;&nbsp;
-        <button id="btn-b">b 계산</button>
+        <button id="btn-b">BMI</button>
         &nbsp;&nbsp;
         <button id="btn-c">c 계산</button>
         <p />
@@ -36,10 +36,14 @@
       
         <div id="b-form" class="calc-form">
           <!-- b 계산 폼 내용 -->
-          <form>
-            <label for="b-value">b 값:</label>
-            <input type="text" id="b-value" name="b-value">
-            <button type="submit">계산</button>
+          <form oninput="calculateBMI()">
+            <label for="weight">몸무게 (kg):</label>
+            <input type="number" id="weight" name="weight" step="any">
+        
+            <label for="height">키 (cm):</label>
+            <input type="number" id="height" name="height" step="any">
+        
+            <p>BMI: <strong id="bmi-result">-</strong></p>
           </form>
         </div>
 
@@ -105,6 +109,20 @@
         const change = ((b - a) / a) * 100;
         const sign = change >= 0 ? "+" : "";
         result.textContent = `${sign}${change.toFixed(2)}%`;
+      } else {
+        result.textContent = "-";
+      }
+    }
+
+    function calculateBMI() {
+      const weight = parseFloat(document.getElementById("weight").value);
+      const height = parseFloat(document.getElementById("height").value);
+      const result = document.getElementById("bmi-result");
+  
+      if (!isNaN(weight) && !isNaN(height) && height > 0) {
+        const heightInMeters = height / 100;
+        const bmi = weight / (heightInMeters * heightInMeters);
+        result.textContent = bmi.toFixed(1);
       } else {
         result.textContent = "-";
       }
