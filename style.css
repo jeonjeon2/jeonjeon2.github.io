@@ -41,18 +41,22 @@ footer {
   display: flex;
   gap: 2rem;
   padding: 2rem;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
 .tool-box {
   flex: 1 1 45%;
+  min-width: 280px;
   border: 1px solid #ccc;
   border-radius: 12px;
   padding: 1.5rem;
   background-color: #f9f9f9;
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
-  min-width: 300px;
+  box-sizing: border-box;
 }
+
+
 
 
 /* ✅ 모바일 최적화 */
@@ -72,5 +76,8 @@ footer {
 
   main {
     padding: 1rem;
+  }
+  .tool-box {
+    flex: 1 1 100%;
   }
 }
