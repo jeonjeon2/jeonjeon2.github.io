@@ -81,7 +81,9 @@
       const barcodeOptions = document.getElementById("barcode-options");
       const canvas = document.getElementById("barcode-canvas");
       const qrcode = document.getElementById("qrcode");
-
+      const barcodeDownload = document.getElementById("barcode-download");
+      const qrcodeDownload = document.getElementById("qrcode-download");
+    
       if (selected === "barcode") {
         barcodeOptions.style.display = "block";
         canvas.style.display = "block";
@@ -128,8 +130,13 @@
     }
 
     function downloadBarcode() {
+      const value = document.getElementById("input-value").value.trim();
       const canvas = document.getElementById("barcode-canvas");
-      if (!canvas || canvas.style.display === "none") return alert("바코드가 없습니다.");
+    
+      if (!value || canvas.style.display === "none") {
+        return alert("생성된 바코드가 없습니다.");
+      }
+    
       const link = document.createElement("a");
       link.download = "barcode.png";
       link.href = canvas.toDataURL("image/png");
