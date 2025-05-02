@@ -68,62 +68,62 @@
         </div>
         
         <div id="h-form" class="calc-form">
-          <p>두 상품의 단가를 비교 계산합니다.</p>
+          <p>두 상품의 단가를 비교 계산합니다.(Compares the unit prices of two products.)</p>
           <form oninput="calculateUnitPrice()">
             <table border="0" cellspacing="10">
               <tr>
                 <th></th>
-                <th>가격</th>
-                <th>용량</th>
+                <th>가격(Price)</th>
+                <th>용량(Capacity)</th>
               </tr>
               <tr>
-                <td align="right">상품 A</td>
+                <td align="right">상품 A(Product A)</td>
                 <td><input type="number" id="priceA" step="any"></td>
                 <td><input type="number" id="amountA" step="any"></td>
               </tr>
               <tr>
-                <td align="right">상품 B</td>
+                <td align="right">상품 B(Product B)</td>
                 <td><input type="number" id="priceB" step="any"></td>
                 <td><input type="number" id="amountB" step="any"></td>
               </tr>
             </table>
-            <p>상품 A 단가: <strong id="unitPriceA">-</strong></p>
-            <p>상품 B 단가: <strong id="unitPriceB">-</strong></p>
+            <p>상품 A 단가(Unit Price of Product A): <strong id="unitPriceA">-</strong></p>
+            <p>상품 B 단가(Unit Price of Product B): <strong id="unitPriceB">-</strong></p>
             <p id="betterDeal"></p>
           </form>
         </div>
         
         <div id="a-form" class="calc-form">
-          <p>a, b에 대한 %를 계산합니다.</p>
+          <p>a, b에 대한 %를 계산합니다.(Calculates the percentage of a relative to b.)</p>
           <form oninput="calculateChange()">
             <table border="0" cellspacing="10">
               <tr>
-                <td align="right"><label for="a-value">변동 전(a):</label></td>
+                <td align="right"><label for="a-value">변동 전(a)(Before Change (a)):</label></td>
                 <td><input type="number" id="a-value" name="a-value" step="any"></td>
               </tr>
               <tr>
-                <td align="right"><label for="b-value">변동 후(b):</label></td>
+                <td align="right"><label for="b-value">변동 후(b)(After Change (b)):</label></td>
                 <td><input type="number" id="b-value" name="b-value" step="any"></td>
               </tr>
             </table>
-            <p>변동률:&nbsp;&nbsp;&nbsp;<strong id="result">-</strong></p>
+            <p>변동률(Rate of Change):&nbsp;&nbsp;&nbsp;<strong id="result">-</strong></p>
           </form>
         </div>
 
         <div id="d-form" class="calc-form">
-          <p>a의 %에 대한 결과를 계산합니다.</p>
+          <p>a의 %에 대한 결과를 계산합니다.(Calculates the result based on the percentage of a.)</p>
           <form oninput="calculatePercentageChange()">
             <table border="0" cellspacing="10">
               <tr>
-                <td align="right"><label for="a-value2">기본 값(a):</label></td>
+                <td align="right"><label for="a-value2">기본 값(a)(Base Value (a)):</label></td>
                 <td><input type="number" id="a-value2" name="a-value2" step="any"></td>
               </tr>
               <tr>
-                <td align="right"><label for="percent-value">변동률(%):</label></td>
+                <td align="right"><label for="percent-value">변동률(%)(Rate of Change (%)):</label></td>
                 <td><input type="number" id="percent-value" name="percent-value" step="any"></td>
               </tr>
             </table>
-            <p>결과 값:&nbsp;&nbsp;&nbsp;<strong id="result2">-</strong></p>
+            <p>결과 값(Result Value):&nbsp;&nbsp;&nbsp;<strong id="result2">-</strong></p>
           </form>
         </div>
 
