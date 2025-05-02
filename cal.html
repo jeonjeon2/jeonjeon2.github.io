@@ -63,12 +63,12 @@
           <form oninput="calculateBMR()">
             <table border="0" cellspacing="10">
               <tr>
-                <td align="right"><label for="bmr-gender">성별:</label></td>
+                <td align="right"><label>성별:</label></td>
                 <td>
-                  <select id="bmr-gender">
-                    <option value="male">남성</option>
-                    <option value="female">여성</option>
-                  </select>
+                  <input type="radio" id="bmr-male" name="bmr-gender" value="male" checked>
+                  <label for="bmr-male">남성</label>&nbsp;&nbsp;&nbsp;
+                  <input type="radio" id="bmr-female" name="bmr-gender" value="female">
+                  <label for="bmr-female">여성</label>
                 </td>
               </tr>
               <tr>
@@ -228,7 +228,8 @@
     }
 
     function calculateBMR() {
-      const gender = document.getElementById("bmr-gender").value;
+      // 선택된 라디오 버튼 값 가져오기
+      const gender = document.querySelector('input[name="bmr-gender"]:checked').value;
       const age = parseFloat(document.getElementById("bmr-age").value);
       const height = parseFloat(document.getElementById("bmr-height").value);
       const weight = parseFloat(document.getElementById("bmr-weight").value);
