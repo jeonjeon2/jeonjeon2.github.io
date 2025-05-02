@@ -130,7 +130,7 @@
           </form>
         </div>
 
-        <div id="f-form" class="calc-form">
+        <div id="c-form" class="calc-form">
           <form oninput="calculateCompoundInterest()">
             <p>복리를 구합니다.</p>
             <table border="0" cellspacing="10">
@@ -143,12 +143,8 @@
                 <td><input type="number" id="c-rate" name="rate" step="any"></td>
               </tr>
               <tr>
-                <td align="right"><label for="c-time">총 기간(년):</label></td>
+                <td align="right"><label for="c-time">기간(년):</label></td>
                 <td><input type="number" id="c-time" name="time" step="any"></td>
-              </tr>
-              <tr>
-                <td align="right"><label for="c-frequency">완료 년 수:</label></td>
-                <td><input type="number" id="c-frequency" name="frequency" step="any"></td>
               </tr>
             </table>
             <p>이자액:&nbsp;&nbsp;&nbsp;<strong id="c-interest-result">-</strong></p>
@@ -280,11 +276,11 @@
       const principal = parseFloat(document.getElementById("c-principal").value);
       const rate = parseFloat(document.getElementById("c-rate").value);
       const time = parseFloat(document.getElementById("c-time").value);
-      const frequency = parseFloat(document.getElementById("c-frequency").value);
       const interestResult = document.getElementById("c-interest-result");
       const totalResult = document.getElementById("c-total-result");
   
-      if (!isNaN(principal) && !isNaN(rate) && !isNaN(time) && !isNaN(frequency) && frequency > 0) {
+      if (!isNaN(principal) && !isNaN(rate) && !isNaN(time)) {
+        const frequency = 1;  // 연 1회 복리로 고정
         const total = principal * Math.pow((1 + rate / (100 * frequency)), frequency * time);
         const interest = total - principal;
         interestResult.textContent = interest.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
