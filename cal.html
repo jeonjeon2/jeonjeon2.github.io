@@ -44,15 +44,15 @@
           <form oninput="calculatePercentageChange()">
             <table border="0" cellspacing="10">
               <tr align="right">
-                <td><label for="a-value">기본 값(a):</label></td>
-                <td><input type="number" id="a-value" name="a-value" step="any"></td>
+                <td><label for="a-value2">기본 값(a):</label></td>
+                <td><input type="number" id="a-value2" name="a-value2" step="any"></td>
               </tr>
               <tr align="right">
                 <td><label for="percent-value">변동률(%):</label></td>
                 <td><input type="number" id="percent-value" name="percent-value" step="any"></td>
               </tr>
             </table>
-            <p>결과 값:&nbsp;&nbsp;&nbsp;<strong id="result">-</strong></p>
+            <p>결과 값:&nbsp;&nbsp;&nbsp;<strong id="result2">-</strong></p>
           </form>
         </div>
       
@@ -147,9 +147,9 @@
     }
 
     function calculatePercentageChange() {
-      const a = parseFloat(document.getElementById("a-value").value);
+      const a = parseFloat(document.getElementById("a-value2").value);
       const percent = parseFloat(document.getElementById("percent-value").value);
-      const result = document.getElementById("result");
+      const result = document.getElementById("result2");
     
       if (!isNaN(a) && !isNaN(percent)) {
         const b = a * (1 + percent / 100);
