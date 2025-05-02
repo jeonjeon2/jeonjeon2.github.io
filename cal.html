@@ -27,12 +27,12 @@
           <p>a, b에 대한 %를 계산합니다.</p>
           <form oninput="calculateChange()">
             <table border="0" cellspacing="10">
-              <tr align="right">
-                <td><label for="a-value">변동 전(a):</label></td>
+              <tr>
+                <td align="right"><label for="a-value">변동 전(a):</label></td>
                 <td><input type="number" id="a-value" name="a-value" step="any"></td>
               </tr>
-              <tr align="right">
-                <td><label for="b-value">변동 후(b):</label></td>
+              <tr>
+                <td align="right"><label for="b-value">변동 후(b):</label></td>
                 <td><input type="number" id="b-value" name="b-value" step="any"></td>
               </tr>
             </table>
@@ -44,12 +44,12 @@
           <p>a에 대한 %값을 계산합니다.</p>
           <form oninput="calculatePercentageChange()">
             <table border="0" cellspacing="10">
-              <tr align="right">
-                <td><label for="a-value2">기본 값(a):</label></td>
+              <tr>
+                <td align="right"><label for="a-value2">기본 값(a):</label></td>
                 <td><input type="number" id="a-value2" name="a-value2" step="any"></td>
               </tr>
-              <tr align="right">
-                <td><label for="percent-value">변동률(%):</label></td>
+              <tr>
+                <td align="right"><label for="percent-value">변동률(%):</label></td>
                 <td><input type="number" id="percent-value" name="percent-value" step="any"></td>
               </tr>
             </table>
@@ -62,8 +62,8 @@
           <p>기초대사량(BMR)을 계산합니다.</p>
           <form oninput="calculateBMR()">
             <table border="0" cellspacing="10">
-              <tr align="right">
-                <td><label for="bmr-gender">성별:</label></td>
+              <tr>
+                <td align="right"><label for="bmr-gender">성별:</label></td>
                 <td>
                   <select id="bmr-gender">
                     <option value="male">남성</option>
@@ -71,16 +71,16 @@
                   </select>
                 </td>
               </tr>
-              <tr align="right">
-                <td><label for="bmr-age">나이:</label></td>
+              <tr>
+                <td align="right"><label for="bmr-age">나이:</label></td>
                 <td><input type="number" id="bmr-age" step="1"></td>
               </tr>
-              <tr align="right">
-                <td><label for="bmr-height">키(cm):</label></td>
+              <tr>
+                <td align="right"><label for="bmr-height">키(cm):</label></td>
                 <td><input type="number" id="bmr-height" step="any"></td>
               </tr>
-              <tr align="right">
-                <td><label for="bmr-weight">몸무게(kg):</label></td>
+              <tr>
+                <td align="right"><label for="bmr-weight">몸무게(kg):</label></td>
                 <td><input type="number" id="bmr-weight" step="any"></td>
               </tr>
             </table>
@@ -94,12 +94,12 @@
           <p>체질량지수(BMI)을 계산합니다.</p>
           <form oninput="calculateBMI()">
             <table border="0" cellspacing="10">
-              <tr align="right">
-                <td><label for="height">키(cm):</label></td>
+              <tr>
+                <td align="right"><label for="height">키(cm):</label></td>
                 <td><input type="number" id="height" name="height" step="any"></td>
               </tr>
-              <tr align="right">
-                <td><label for="weight">몸무게(kg):</label></td>
+              <tr>
+                <td align="right"><label for="weight">몸무게(kg):</label></td>
                 <td><input type="number" id="weight" name="weight" step="any"></td>
               </tr>
             </table>
@@ -111,16 +111,16 @@
           <form oninput="calculateSimpleInterest()">
             <p>연 이율 단리를 구합니다.</p>
             <table border="0" cellspacing="10">
-              <tr align="right">
-                <td><label for="principal">원금:</label></td>
+              <tr>
+                <td align="right"><label for="principal">원금:</label></td>
                 <td><input type="number" id="principal" name="principal" step="any"></td>
               </tr>
-              <tr align="right">
-                <td><label for="rate">이자율(%):</label></td>
+              <tr>
+                <td align="right"><label for="rate">이자율(%):</label></td>
                 <td><input type="number" id="rate" name="rate" step="any"></td>
               </tr>
-              <tr align="right">
-                <td><label for="time">기간(년):</label></td>
+              <tr>
+                <td align="right"><label for="time">기간(년):</label></td>
                 <td><input type="number" id="time" name="time" step="any"></td>
               </tr>
             </table>
@@ -130,19 +130,19 @@
       </div>
 
       <div id="f-form" class="calc-form">
-        <form oninput="calculateCompoundInterest()">
+        <form>
           <p>복리 이자를 구합니다.</p>
           <table border="0" cellspacing="10">
-            <tr align="right">
-              <td><label for="principal2">원금:</label></td>
+            <tr>
+              <td align="right"><label for="principal2">원금:</label></td>
               <td><input type="number" id="principal2" name="principal2" step="any" required></td>
             </tr>
-            <tr align="right">
-              <td><label for="rate2">이자율(%):</label></td>
+            <tr>
+              <td align="right"><label for="rate2">이자율(%):</label></td>
               <td><input type="number" id="rate2" name="rate2" step="any" required></td>
             </tr>
-            <tr align="right">
-              <td><label>복리 주기:</label></td>
+            <tr>
+              <td align="right"><label>복리 주기:</label></td>
               <td>
                 <input type="radio" id="yearly" name="compound-frequency" value="1" checked>
                 <label for="yearly">년</label>&nbsp;&nbsp;&nbsp;
@@ -152,8 +152,8 @@
                 <label for="daily">일</label>
               </td>
             </tr>
-            <tr align="right">
-              <td><label for="time">기간:</label></td>
+            <tr>
+              <td align="right"><label for="time">기간:</label></td>
               <td><input type="number" id="time" name="time" step="any" required></td>
             </tr>
           </table>
@@ -281,6 +281,7 @@
       }
     }
 
+    // 복리 이자 계산 함수
     function calculateCompoundInterest() {
       const principal = parseFloat(document.getElementById("principal2").value);
       const rate = parseFloat(document.getElementById("rate2").value);
@@ -296,7 +297,8 @@
       
       const interestResult = document.getElementById("interest-result");
       const totalResult = document.getElementById("total-result");
-      
+  
+      // 입력값이 모두 유효한지 체크
       if (!isNaN(principal) && principal > 0 && !isNaN(rate) && rate >= 0 && !isNaN(time) && time > 0) {
         // 복리 계산 공식
         const interest = principal * Math.pow(1 + (rate / (100 * compoundFrequency)), compoundFrequency * time) - principal;
@@ -305,10 +307,14 @@
         interestResult.textContent = interest.toFixed(2);
         totalResult.textContent = total.toFixed(2);
       } else {
+        // 입력값이 잘못된 경우
         interestResult.textContent = "-";
         totalResult.textContent = "-";
       }
     }
+  
+    // 이벤트 리스너 추가 (폼의 모든 입력값이 변경될 때마다 계산)
+    document.querySelector("form").addEventListener("input", calculateCompoundInterest);
 
     
   </script>
