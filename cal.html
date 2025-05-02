@@ -134,7 +134,7 @@
         <form oninput="calculateCompoundInterest()">
           <table border="0" cellspacing="15">
             <tr>
-              <td align="right"><label for="ci-principal">원금(₩):</label></td>
+              <td align="right"><label for="ci-principal">원금:</label></td>
               <td><input type="number" id="ci-principal" step="any"></td>
             </tr>
             <tr>
@@ -157,7 +157,7 @@
               <td><input type="number" id="ci-time" step="any"></td>
             </tr>
           </table>
-          <p>최종 금액:&nbsp;&nbsp;&nbsp;<strong id="ci-result">-</strong> ₩</p>
+          <p>최종 금액:&nbsp;&nbsp;&nbsp;<strong id="ci-result">-</strong></p>
         </form>
       </div>
 
@@ -207,7 +207,7 @@
       if (!isNaN(a) && !isNaN(b) && a !== 0) {
         const change = ((b - a) / a) * 100;
         const sign = change >= 0 ? "+" : "";
-        result.textContent = `${sign}${change.toFixed(2)}%`;
+        result.textContent = `${sign}${change.toFixed(2).toLocaleString();}%`;
       } else {
         result.textContent = "-";
       }
@@ -220,7 +220,7 @@
     
       if (!isNaN(a) && !isNaN(percent)) {
         const b = a * (1 + percent / 100);
-        result.textContent = b.toFixed(2);
+        result.textContent = b.toFixed(2).toLocaleString();;
       } else {
         result.textContent = "-";
       }
@@ -241,7 +241,7 @@
         } else {
           bmr = 10 * weight + 6.25 * height - 5 * age - 161;
         }
-        result.textContent = bmr.toFixed(1);
+        result.textContent = bmr.toFixed(1).toLocaleString();;
       } else {
         result.textContent = "-";
       }
@@ -257,7 +257,7 @@
       if (!isNaN(weight) && !isNaN(height) && height > 0) {
         const heightInMeters = height / 100;
         const bmi = weight / (heightInMeters * heightInMeters);
-        result.textContent = bmi.toFixed(1);
+        result.textContent = bmi.toFixed(1).toLocaleString();;
       } else {
         result.textContent = "-";
       }
@@ -274,7 +274,7 @@
         const interest = (principal * rate * time) / 100;
         const total = principal + interest;
         interestResult.textContent = interest.toFixed(2);
-        totalResult.textContent = total.toFixed(2);
+        totalResult.textContent = total.toFixed(2).toLocaleString();
       } else {
         interestResult.textContent = "-";
         totalResult.textContent = "-";
