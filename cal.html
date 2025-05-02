@@ -73,7 +73,7 @@
         </div>
         
         <div id="h-form" class="calc-form">
-          <p>단가 계산기 (대용량 상품 비교)</p>
+          <p>두 상품의 단가를 비교 계합니다.</p>
           <form oninput="calculateUnitPrice()">
             <table border="0" cellspacing="10">
               <tr>
@@ -82,7 +82,7 @@
                 <th>상품 B</th>
               </tr>
               <tr>
-                <td align="right"><label for="priceA">가격(원):</label></td>
+                <td align="right"><label for="priceA">가격:</label></td>
                 <td><input type="number" id="priceA" step="any"></td>
                 <td><input type="number" id="priceB" step="any"></td>
               </tr>
@@ -91,19 +91,9 @@
                 <td><input type="number" id="amountA" step="any"></td>
                 <td><input type="number" id="amountB" step="any"></td>
               </tr>
-              <tr>
-                <td align="right"><label for="unit">단위:</label></td>
-                <td colspan="2">
-                  <select id="unit" onchange="calculateUnitPrice()">
-                    <option value="1">1개/1g/1ml 당</option>
-                    <option value="1">100g/100ml 당</option>
-                    <option value="1">1kg/1L 당</option>
-                  </select>
-                </td>
-              </tr>
             </table>
-            <p>상품 A 단가: <strong id="unitPriceA">-</strong> 원</p>
-            <p>상품 B 단가: <strong id="unitPriceB">-</strong> 원</p>
+            <p>상품 A 단가: <strong id="unitPriceA">-</strong></p>
+            <p>상품 B 단가: <strong id="unitPriceB">-</strong></p>
             <p id="betterDeal"></p>
           </form>
         </div>
@@ -382,7 +372,6 @@
       const amountA = parseFloat(document.getElementById("amountA").value);
       const priceB = parseFloat(document.getElementById("priceB").value);
       const amountB = parseFloat(document.getElementById("amountB").value);
-      const unit = parseFloat(document.getElementById("unit").value);
   
       const resultA = document.getElementById("unitPriceA");
       const resultB = document.getElementById("unitPriceB");
@@ -391,15 +380,15 @@
       let unitPriceA = null, unitPriceB = null;
   
       if (!isNaN(priceA) && !isNaN(amountA) && amountA > 0) {
-        unitPriceA = (priceA / amountA) * unit;
-        resultA.innerHTML = formatWithColoredDecimal(unitPriceA)
+        unitPriceA = priceA / amountA;
+        resultA.innerHTML = formatWithColoredDecimal(unitPriceA);
       } else {
         resultA.textContent = "-";
       }
-  
+    
       if (!isNaN(priceB) && !isNaN(amountB) && amountB > 0) {
-        unitPriceB = (priceB / amountB) * unit;
-        resultB.innerHTML = formatWithColoredDecimal(unitPriceB)
+        unitPriceB = priceB / amountB;
+        resultB.innerHTML = formatWithColoredDecimal(unitPriceB);
       } else {
         resultB.textContent = "-";
       }
