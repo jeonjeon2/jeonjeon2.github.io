@@ -45,8 +45,8 @@
           <form oninput="calculatePercentageChange()">
             <table border="0" cellspacing="10">
               <tr align="right">
-                <td><label for="a-value2">기본 값(a):</label></td>
-                <td><input type="number" id="a-value2" name="a-value2" step="any"></td>
+                <td><label for="a-value">기본 값(a):</label></td>
+                <td><input type="number" id="a-value" name="a-value" step="any"></td>
               </tr>
               <tr align="right">
                 <td><label for="percent-value">변동률(%):</label></td>
@@ -214,7 +214,7 @@
     }
 
     function calculatePercentageChange() {
-      const a = parseFloat(document.getElementById("a-value2").value);
+      const a = parseFloat(document.getElementById("a-value").value);
       const percent = parseFloat(document.getElementById("percent-value").value);
       const result = document.getElementById("result2");
     
