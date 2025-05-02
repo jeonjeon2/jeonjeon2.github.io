@@ -110,7 +110,7 @@
 
         <div id="c-form" class="calc-form">
           <form oninput="calculateSimpleInterest()">
-            <p>연 이율 단리를 구합니다.</p>
+            <p>단리를 구합니다.</p>
             <table border="0" cellspacing="10">
               <tr>
                 <td align="right"><label for="principal">원금:</label></td>
@@ -130,27 +130,7 @@
           </form>
         </div>
 
-        <div id="f-form" class="calc-form">
-          <form oninput="calculateMonthlyCompoundInterest()">
-            <p>월 단위 복리 이자를 구합니다.</p>
-            <table border="0" cellspacing="15">
-              <tr>
-                <td align="right"><label for="cmp-principal">원금:</label></td>
-                <td><input type="number" id="cmp-principal" name="cmp-principal" step="any"></td>
-              </tr>
-              <tr>
-                <td align="right"><label for="cmp-rate">연 이자율(%):</label></td>
-                <td><input type="number" id="cmp-rate" name="cmp-rate" step="any"></td>
-              </tr>
-              <tr>
-                <td align="right"><label for="cmp-months">기간(개월):</label></td>
-                <td><input type="number" id="cmp-months" name="cmp-months" step="1"></td>
-              </tr>
-            </table>
-            <p>이자액:&nbsp;&nbsp;&nbsp;<strong id="cmp-interest-result">-</strong></p>
-            <p>총액:&nbsp;&nbsp;&nbsp;<strong id="cmp-total-result">-</strong></p>
-          </form>
-        </div>
+        
 
       </div>
     </section>
@@ -272,25 +252,7 @@
       }
     }
 
-    function calculateMonthlyCompoundInterest() {
-      const principal = parseFloat(document.getElementById("cmp-principal").value);
-      const annualRate = parseFloat(document.getElementById("cmp-rate").value);
-      const months = parseInt(document.getElementById("cmp-months").value);
-      const interestResult = document.getElementById("cmp-interest-result");
-      const totalResult = document.getElementById("cmp-total-result");
-    
-      if (!isNaN(principal) && !isNaN(annualRate) && !isNaN(months)) {
-        const monthlyRate = annualRate / 12 / 100;
-        const total = principal * Math.pow(1 + monthlyRate, months);
-        const interest = total - principal;
-    
-        interestResult.textContent = interest.toFixed(2).toLocaleString();
-        totalResult.textContent = total.toFixed(2).toLocaleString();
-      } else {
-        interestResult.textContent = "-";
-        totalResult.textContent = "-";
-      }
-    }
+ 
 
     
   </script>
