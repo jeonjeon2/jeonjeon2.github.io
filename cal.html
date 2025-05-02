@@ -19,7 +19,7 @@
           <button class="form-toggle-btn" data-target="d-form">변동률</button>&nbsp;&nbsp;&nbsp;
           <button class="form-toggle-btn" data-target="c-form">단리</button>&nbsp;&nbsp;&nbsp;
           <button class="form-toggle-btn" data-target="e-form">BMR(기초대사량)</button>&nbsp;&nbsp;&nbsp;
-          <button class="form-toggle-btn" data-target="b-form">BMI(체질량)</button>&nbsp;&nbsp;&nbsp;
+          <button class="form-toggle-btn" data-target="b-form">BMI(체질량지수)</button>&nbsp;&nbsp;&nbsp;
         </p>
          
         <div id="a-form" class="calc-form">
@@ -55,9 +55,42 @@
             <p>결과 값:&nbsp;&nbsp;&nbsp;<strong id="result2">-</strong></p>
           </form>
         </div>
-      
+
+
+        <div id="d-form" class="calc-form">
+          <p>기초대사량(BMR)을 계산합니다.</p>
+          <form oninput="calculateBMR()">
+            <table border="0" cellspacing="10">
+              <tr align="right">
+                <td><label for="bmr-gender">성별:</label></td>
+                <td>
+                  <select id="bmr-gender">
+                    <option value="male">남성</option>
+                    <option value="female">여성</option>
+                  </select>
+                </td>
+              </tr>
+              <tr align="right">
+                <td><label for="bmr-age">나이:</label></td>
+                <td><input type="number" id="bmr-age" step="1"></td>
+              </tr>
+              <tr align="right">
+                <td><label for="bmr-height">키(cm):</label></td>
+                <td><input type="number" id="bmr-height" step="any"></td>
+              </tr>
+              <tr align="right">
+                <td><label for="bmr-weight">몸무게(kg):</label></td>
+                <td><input type="number" id="bmr-weight" step="any"></td>
+              </tr>
+            </table>
+            <p>BMR:&nbsp;&nbsp;&nbsp;<strong id="bmr-result">-</strong> kcal/day</p>
+          </form>
+        </div>
+
+
+        
         <div id="b-form" class="calc-form">
-          <p>BMI 지수를 구합니다.</p>
+          <p>체질량지수(BMI)을 계산합니다.</p>
           <form oninput="calculateBMI()">
             <table border="0" cellspacing="10">
               <tr align="right">
@@ -158,6 +191,28 @@
         result.textContent = "-";
       }
     }
+
+    function calculateBMR() {
+      const gender = document.getElementById("bmr-gender").value;
+      const age = parseFloat(document.getElementById("bmr-age").value);
+      const height = parseFloat(document.getElementById("bmr-height").value);
+      const weight = parseFloat(document.getElementById("bmr-weight").value);
+      const result = document.getElementById("bmr-result");
+    
+      if (!isNaN(age) && !isNaN(height) && !isNaN(weight)) {
+        let bmr;
+        if (gender === "male") {
+          bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+        } else {
+          bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+        }
+        result.textContent = bmr.toFixed(1);
+      } else {
+        result.textContent = "-";
+      }
+    }
+
+
     
     function calculateBMI() {
       const weight = parseFloat(document.getElementById("weight").value);
