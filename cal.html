@@ -23,8 +23,45 @@
           <button class="form-toggle-btn" data-target="e-form">BMR(기초대사량)</button>&nbsp;&nbsp;&nbsp;
           <button class="form-toggle-btn" data-target="b-form">BMI(체질량지수)</button>&nbsp;&nbsp;&nbsp;
           <button class="form-toggle-btn" data-target="g-form">D-day</button>&nbsp;&nbsp;&nbsp;
+          <button class="form-toggle-btn" data-target="h-form">단가</button>&nbsp;&nbsp;&nbsp;
         </p>
-         
+
+        <div id="h-form" class="calc-form">
+          <p>단가 계산기 (대용량 상품 비교)</p>
+          <form oninput="calculateUnitPrice()">
+            <table border="0" cellspacing="10">
+              <tr>
+                <th></th>
+                <th>상품 A</th>
+                <th>상품 B</th>
+              </tr>
+              <tr>
+                <td align="right"><label for="priceA">가격(원):</label></td>
+                <td><input type="number" id="priceA" step="any"></td>
+                <td><input type="number" id="priceB" step="any"></td>
+              </tr>
+              <tr>
+                <td align="right"><label for="amountA">용량:</label></td>
+                <td><input type="number" id="amountA" step="any"></td>
+                <td><input type="number" id="amountB" step="any"></td>
+              </tr>
+              <tr>
+                <td align="right"><label for="unit">단위:</label></td>
+                <td colspan="2">
+                  <select id="unit" onchange="calculateUnitPrice()">
+                    <option value="1">1개/1g/1ml 당</option>
+                    <option value="100">100g/100ml 당</option>
+                    <option value="1000">1kg/1L 당</option>
+                  </select>
+                </td>
+              </tr>
+            </table>
+            <p>상품 A 단가: <strong id="unitPriceA">-</strong> 원</p>
+            <p>상품 B 단가: <strong id="unitPriceB">-</strong> 원</p>
+            <p id="betterDeal"></p>
+          </form>
+        </div>
+        
         <div id="a-form" class="calc-form">
           <p>a, b에 대한 %를 계산합니다.</p>
           <form oninput="calculateChange()">
@@ -221,6 +258,47 @@
       return `${intPart}<span style="color:blue">.${parts[1]}</span>`;
     }
 
+
+    function calculateUnitPrice() {
+      const priceA = parseFloat(document.getElementById("priceA").value);
+      const amountA = parseFloat(document.getElementById("amountA").value);
+      const priceB = parseFloat(document.getElementById("priceB").value);
+      const amountB = parseFloat(document.getElementById("amountB").value);
+      const unit = parseFloat(document.getElementById("unit").value);
+  
+      const resultA = document.getElementById("unitPriceA");
+      const resultB = document.getElementById("unitPriceB");
+      const betterDeal = document.getElementById("betterDeal");
+  
+      let unitPriceA = null, unitPriceB = null;
+  
+      if (!isNaN(priceA) && !isNaN(amountA) && amountA > 0) {
+        unitPriceA = (priceA / amountA) * unit;
+        resultA.innerHTML = formatWithColoredDecimal(unitPriceA)
+      } else {
+        resultA.textContent = "-";
+      }
+  
+      if (!isNaN(priceB) && !isNaN(amountB) && amountB > 0) {
+        unitPriceB = (priceB / amountB) * unit;
+        resultB.innerHTML = formatWithColoredDecimal(unitPriceB)
+      } else {
+        resultB.textContent = "-";
+      }
+  
+      // 비교 결과 표시
+      if (unitPriceA !== null && unitPriceB !== null) {
+        if (unitPriceA < unitPriceB) {
+          betterDeal.textContent = "✅ 상품 A가 더 저렴합니다.";
+        } else if (unitPriceA > unitPriceB) {
+          betterDeal.textContent = "✅ 상품 B가 더 저렴합니다.";
+        } else {
+          betterDeal.textContent = "⚖️ 두 상품의 단가가 동일합니다.";
+        }
+      } else {
+        betterDeal.textContent = "";
+      }
+    }
 
     function calculateChange() {
       const a = parseFloat(document.getElementById("a-value").value);
