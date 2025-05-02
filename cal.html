@@ -129,28 +129,28 @@
 
 
         <div id="e-form" class="calc-form">
-          <p>기초대사량(BMR)을 계산합니다.</p>
+          <p>기초대사량(BMR)을 계산합니다.(Calculates Basal Metabolic Rate (BMR))</p>
           <form oninput="calculateBMR()">
             <table border="0" cellspacing="10">
               <tr>
-                <td align="right"><label>성별:</label></td>
+                <td align="right"><label>성별(Gender):</label></td>
                 <td>
                   <input type="radio" id="bmr-male" name="bmr-gender" value="male" checked>
-                  <label for="bmr-male">남성</label>&nbsp;&nbsp;&nbsp;
+                  <label for="bmr-male">남성(Male)</label>&nbsp;&nbsp;&nbsp;
                   <input type="radio" id="bmr-female" name="bmr-gender" value="female">
-                  <label for="bmr-female">여성</label>
+                  <label for="bmr-female">여성(Female)</label>
                 </td>
               </tr>
               <tr>
-                <td align="right"><label for="bmr-age">나이:</label></td>
+                <td align="right"><label for="bmr-age">나이(Age):</label></td>
                 <td><input type="number" id="bmr-age" step="1"></td>
               </tr>
               <tr>
-                <td align="right"><label for="bmr-height">키(cm):</label></td>
+                <td align="right"><label for="bmr-height">키(cm)(Height (cm)):</label></td>
                 <td><input type="number" id="bmr-height" step="any"></td>
               </tr>
               <tr>
-                <td align="right"><label for="bmr-weight">몸무게(kg):</label></td>
+                <td align="right"><label for="bmr-weight">몸무게(kg)(Weight (kg)):</label></td>
                 <td><input type="number" id="bmr-weight" step="any"></td>
               </tr>
             </table>
@@ -159,11 +159,11 @@
         </div>
 
         <div id="g-form" class="calc-form">
-          <p>D-Day를 계산합니다.</p>
+          <p>D-Day를 계산합니다.(Calculates D-Day)</p>
           <form oninput="calculateDday()">
             <table border="0" cellspacing="10">
               <tr>
-                <td align="right"><label for="target-date">목표 날짜:</label></td>
+                <td align="right"><label for="target-date">목표 날짜(Target Date):</label></td>
                 <td><input type="date" id="target-date" name="target-date"></td>
               </tr>
             </table>
@@ -172,15 +172,15 @@
         </div>
         
         <div id="b-form" class="calc-form">
-          <p>체질량지수(BMI)을 계산합니다.</p>
+          <p>체질량지수(BMI)을 계산합니다.(Calculates Body Mass Index (BMI))</p>
           <form oninput="calculateBMI()">
             <table border="0" cellspacing="10">
               <tr>
-                <td align="right"><label for="height">키(cm):</label></td>
+                <td align="right"><label for="height">키(cm)(Height (cm)):</label></td>
                 <td><input type="number" id="height" name="height" step="any"></td>
               </tr>
               <tr>
-                <td align="right"><label for="weight">몸무게(kg):</label></td>
+                <td align="right"><label for="weight">몸무게(kg)(Weight (kg)):</label></td>
                 <td><input type="number" id="weight" name="weight" step="any"></td>
               </tr>
             </table>
@@ -190,54 +190,54 @@
 
         <div id="c-form" class="calc-form">
           <form oninput="calculateSimpleInterest()">
-            <p>단리 이자를 계산합니다.</p>
+            <p>단리 이자를 계산합니다.(Calculates Simple Interest)</p>
             <table border="0" cellspacing="10">
               <tr>
-                <td align="right"><label for="principal">원금:</label></td>
+                <td align="right"><label for="principal">원금(Principal):</label></td>
                 <td><input type="number" id="principal" name="principal" step="any"></td>
               </tr>
               <tr>
-                <td align="right"><label for="rate">이자율(%):</label></td>
+                <td align="right"><label for="rate">이자율(%)(Interest Rate (%)):</label></td>
                 <td><input type="number" id="rate" name="rate" step="any"></td>
               </tr>
               <tr>
-                <td align="right"><label for="time">기간(년):</label></td>
+                <td align="right"><label for="time">기간(년)(Period (Years)):</label></td>
                 <td><input type="number" id="time" name="time" step="any"></td>
               </tr>
             </table>
-            <p>이자액:&nbsp;&nbsp;&nbsp;<strong id="interest-result">-</strong></p>
-            <p>총액:&nbsp;&nbsp;&nbsp;<strong id="total-result">-</strong></p>
+            <p>이자액(Interest Amount):&nbsp;&nbsp;&nbsp;<strong id="interest-result">-</strong></p>
+            <p>총액(Total Amount):&nbsp;&nbsp;&nbsp;<strong id="total-result">-</strong></p>
           </form>
           <div id="simple-table-wrapper"></div>
         </div>
 
         <div id="f-form" class="calc-form">
           <form oninput="calculateCompoundInterest()">
-            <p>복리 이자를 계산합니다.</p>
+            <p>복리 이자를 계산합니다.(Calculates Compound Interest)</p>
             <table border="0" cellspacing="10">
               <tr>
-                <td align="right"><label for="c-principal">원금:</label></td>
+                <td align="right"><label for="c-principal">원금(Principal):</label></td>
                 <td><input type="number" id="c-principal" step="any"></td>
               </tr>
               <tr>
-                <td align="right"><label for="c-rate">이자율(%):</label></td>
+                <td align="right"><label for="c-rate">이자율(%)(Interest Rate (%)):</label></td>
                 <td><input type="number" id="c-rate" step="any"></td>
               </tr>
               <tr>
-                <td align="right">기간 단위:</td>
+                <td align="right">기간 단위(Time Period Unit):</td>
                 <td>
-                  <label><input type="radio" name="c-period-type" value="day" checked> 일</label>
-                  <label><input type="radio" name="c-period-type" value="month"> 개월</label>
+                  <label><input type="radio" name="c-period-type" value="day" checked> 일(Days)</label>
+                  <label><input type="radio" name="c-period-type" value="month"> 개월(Months)</label>
                 </td>
               </tr>
               <tr>
-                <td align="right"><label for="c-time">기간:</label></td>
+                <td align="right"><label for="c-time">기간(Period):</label></td>
                 <td><input type="number" id="c-time" step="any"></td>
               </tr>
             </table>
         
-            <p>총 이자:&nbsp;&nbsp;&nbsp;<strong id="c-interest-result">-</strong></p>
-            <p>총액:&nbsp;&nbsp;&nbsp;<strong id="c-total-result">-</strong></p>
+            <p>총 이자(Total Interest):&nbsp;&nbsp;&nbsp;<strong id="c-interest-result">-</strong></p>
+            <p>총액(Total Amount):&nbsp;&nbsp;&nbsp;<strong id="c-total-result">-</strong></p>
           </form>
         
           <div id="c-table-wrapper" style="margin-top: 20px;"></div>
@@ -304,7 +304,7 @@
       const m = Math.floor(totalSeconds / 60);
       const s = totalSeconds % 60;
   
-      document.getElementById("sumResult").textContent = `${h}시간 ${m}분 ${s}초`;
+      document.getElementById("sumResult").textContent = `${h}시간(Hour) ${m}분(Minute) ${s}초(Second)`;
     }
   
     function diffTime() {
@@ -326,7 +326,7 @@
       const hours = Math.floor(diff / 60);
       const minutes = diff % 60;
   
-      document.getElementById("diffResult").textContent = `${hours}시간 ${minutes}분`;
+      document.getElementById("diffResult").textContent = `${hours}시간(Hour) ${minutes}분(Minute)`;
     }
 
     
@@ -374,11 +374,11 @@
       // 비교 결과 표시
       if (unitPriceA !== null && unitPriceB !== null) {
         if (unitPriceA < unitPriceB) {
-          betterDeal.textContent = "✅ 상품 A가 더 저렴합니다.";
+          betterDeal.textContent = "✅ 상품 A가 더 저렴합니다.(Product A is cheaper.)";
         } else if (unitPriceA > unitPriceB) {
-          betterDeal.textContent = "✅ 상품 B가 더 저렴합니다.";
+          betterDeal.textContent = "✅ 상품 B가 더 저렴합니다.(Product B is cheaper.)";
         } else {
-          betterDeal.textContent = "⚖️ 두 상품의 단가가 동일합니다.";
+          betterDeal.textContent = "⚖️ 두 상품의 단가가 동일합니다.(The unit prices of both products are the same.)";
         }
       } else {
         betterDeal.textContent = "";
@@ -489,7 +489,7 @@
           const interest = principal * r * i;
           const total = principal + interest;
           results.push({
-            year: `${i}년`,
+            year: `${i}년(Year)`,
             interest,
             total
           });
@@ -505,9 +505,9 @@
           <table style="width:100%;border-collapse:collapse;margin-top:20px;">
             <thead>
               <tr>
-                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">기간</th>
-                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">누적 이자</th>
-                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">총금액</th>
+                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">기간(Duration)</th>
+                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">누적 이자(Accumulated Interest)</th>
+                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">총금액(Total Amount)</th>
               </tr>
             </thead>
             <tbody>`;
@@ -560,7 +560,7 @@
           const cumulativeRate = (total - principal) / principal; // 누적 수익률
 
           results.push({
-            periodLabel: `${i}${periodType === 'day' ? '일' : '개월'}`,
+            periodLabel: `${i}${periodType === 'day' ? '일(Day)' : '개월(Month)'}`,
             profit, total, cumulativeRate
           });
         }
@@ -574,10 +574,10 @@
           <table style="width:100%;border-collapse:collapse;margin-top:20px;">
             <thead>
               <tr>
-                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">기간</th>
-                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">단기 수익</th>
-                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">총금액</th>
-                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">누적 수익률</th>
+                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">기간(Duration)</th>
+                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">단기 수익(Short-Term Profit)</th>
+                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">총금액(Total Amount)</th>
+                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">누적 수익률(Cumulative Return)</th>
               </tr>
             </thead>
             <tbody>`;
