@@ -289,7 +289,7 @@
       const interestResult = document.getElementById("interest-result");
       const totalResult = document.getElementById("total-result");
       
-      if (!isNaN(principal) && !isNaN(rate) && !isNaN(time)) {
+      if (!isNaN(principal) && principal > 0 && !isNaN(rate) && rate >= 0 && !isNaN(time) && time > 0) {
         // 복리 계산 공식
         const interest = principal * Math.pow(1 + (rate / (100 * compoundFrequency)), compoundFrequency * time) - principal;
         const total = principal + interest;
