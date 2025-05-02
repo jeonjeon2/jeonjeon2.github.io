@@ -19,7 +19,8 @@
           <button class="form-toggle-btn" data-target="a-form">퍼센트</button>&nbsp;&nbsp;&nbsp;
           <button class="form-toggle-btn" data-target="d-form">변동률</button>&nbsp;&nbsp;&nbsp;
           <button class="form-toggle-btn" data-target="c-form">단리</button>&nbsp;&nbsp;&nbsp;
-          <button class="form-toggle-btn" data-target="f-form">복리</button>&nbsp;&nbsp;&nbsp;
+          <button class="form-toggle-btn" data-target="f-form">복리(연)</button>&nbsp;&nbsp;&nbsp;
+          <button class="form-toggle-btn" data-target="g-form">복리(월)</button>&nbsp;&nbsp;&nbsp;
           <button class="form-toggle-btn" data-target="e-form">BMR(기초대사량)</button>&nbsp;&nbsp;&nbsp;
           <button class="form-toggle-btn" data-target="b-form">BMI(체질량지수)</button>&nbsp;&nbsp;&nbsp;
         </p>
@@ -149,6 +150,28 @@
             </table>
             <p>이자액:&nbsp;&nbsp;&nbsp;<strong id="c-interest-result">-</strong></p>
             <p>총액:&nbsp;&nbsp;&nbsp;<strong id="c-total-result">-</strong></p>
+          </form>
+        </div>
+
+        <div id="g-form" class="calc-form">
+          <form oninput="calculateMonthlyCompoundInterest()">
+            <p>월 복리를 구합니다.</p>
+            <table border="0" cellspacing="10">
+              <tr>
+                <td align="right"><label for="m-principal">원금:</label></td>
+                <td><input type="number" id="m-principal" name="principal" step="any"></td>
+              </tr>
+              <tr>
+                <td align="right"><label for="m-rate">이자율(%):</label></td>
+                <td><input type="number" id="m-rate" name="rate" step="any"></td>
+              </tr>
+              <tr>
+                <td align="right"><label for="m-time">기간(년):</label></td>
+                <td><input type="number" id="m-time" name="time" step="any"></td>
+              </tr>
+            </table>
+            <p>이자액:&nbsp;&nbsp;&nbsp;<strong id="m-interest-result">-</strong></p>
+            <p>총액:&nbsp;&nbsp;&nbsp;<strong id="m-total-result">-</strong></p>
           </form>
         </div>
 
@@ -291,6 +314,24 @@
       }
     }
 
+    function calculateMonthlyCompoundInterest() {
+      const principal = parseFloat(document.getElementById("m-principal").value);
+      const rate = parseFloat(document.getElementById("m-rate").value);
+      const time = parseFloat(document.getElementById("m-time").value);
+      const interestResult = document.getElementById("m-interest-result");
+      const totalResult = document.getElementById("m-total-result");
+  
+      if (!isNaN(principal) && !isNaN(rate) && !isNaN(time)) {
+        const frequency = 12;  // 월 복리: 연 12회
+        const total = principal * Math.pow((1 + rate / (100 * frequency)), frequency * time);
+        const interest = total - principal;
+        interestResult.textContent = interest.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        totalResult.textContent = total.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      } else {
+        interestResult.textContent = "-";
+        totalResult.textContent = "-";
+      }
+    }
     
   </script>
 </body>
