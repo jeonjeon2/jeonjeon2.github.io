@@ -134,12 +134,12 @@
           <p>복리 이자를 구합니다.</p>
           <table border="0" cellspacing="10">
             <tr align="right">
-              <td><label for="principal">원금:</label></td>
-              <td><input type="number" id="principal" name="principal" step="any"></td>
+              <td><label for="principal2">원금:</label></td>
+              <td><input type="number" id="principal2" name="principal2" step="any"></td>
             </tr>
             <tr align="right">
-              <td><label for="rate">이자율(%):</label></td>
-              <td><input type="number" id="rate" name="rate" step="any"></td>
+              <td><label for="rate2">이자율(%):</label></td>
+              <td><input type="number" id="rate2" name="rate2" step="any"></td>
             </tr>
             <tr align="right">
               <td><label for="time">기간(년):</label></td>
@@ -281,8 +281,8 @@
     }
 
     function calculateCompoundInterest() {
-      const principal = parseFloat(document.getElementById("principal").value);
-      const rate = parseFloat(document.getElementById("rate").value);
+      const principal = parseFloat(document.getElementById("principal2").value);
+      const rate = parseFloat(document.getElementById("rate2").value);
       const time = parseFloat(document.getElementById("time").value);
       const compoundFrequency = parseFloat(document.getElementById("compound-frequency").value);
       
