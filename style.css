@@ -6,6 +6,11 @@ body {
   line-height: 1.6;
 }
 
+p {
+  margin-top: 10px;    /* 위쪽 여백 */
+  margin-bottom: 10px; /* 아래쪽 여백 */
+}
+
 header {
   background: #222;
   color: #fff;
