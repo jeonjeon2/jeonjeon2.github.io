@@ -22,6 +22,7 @@
           <button class="form-toggle-btn" data-target="f-form">복리</button>&nbsp;&nbsp;&nbsp;
           <button class="form-toggle-btn" data-target="e-form">BMR(기초대사량)</button>&nbsp;&nbsp;&nbsp;
           <button class="form-toggle-btn" data-target="b-form">BMI(체질량지수)</button>&nbsp;&nbsp;&nbsp;
+          <button class="form-toggle-btn" data-target="g-form">D-day</button>&nbsp;&nbsp;&nbsp;
         </p>
          
         <div id="a-form" class="calc-form">
@@ -89,7 +90,18 @@
           </form>
         </div>
 
-
+        <div id="g-form" class="calc-form">
+          <p>D-Day를 계산합니다.</p>
+          <form oninput="calculateDday()">
+            <table border="0" cellspacing="10">
+              <tr>
+                <td align="right"><label for="target-date">목표 날짜:</label></td>
+                <td><input type="date" id="target-date" name="target-date"></td>
+              </tr>
+            </table>
+            <p>D-Day:&nbsp;&nbsp;&nbsp;<strong id="dday-result">-</strong></p>
+          </form>
+        </div>
         
         <div id="b-form" class="calc-form">
           <p>체질량지수(BMI)을 계산합니다.</p>
@@ -258,7 +270,29 @@
       }
     }
 
-
+    function calculateDday() {
+      const inputDate = document.getElementById("target-date").value;
+      const result = document.getElementById("dday-result");
+  
+      if (inputDate) {
+        const today = new Date();
+        const target = new Date(inputDate);
+        today.setHours(0, 0, 0, 0);
+        target.setHours(0, 0, 0, 0);
+  
+        const diff = Math.ceil((target - today) / (1000 * 60 * 60 * 24));
+  
+        if (diff > 0) {
+          result.textContent = `D-${diff}`;
+        } else if (diff === 0) {
+          result.textContent = "D-Day!";
+        } else {
+          result.textContent = `D+${Math.abs(diff)}`;
+        }
+      } else {
+        result.textContent = "-";
+      }
+    }
     
     function calculateBMI() {
       const weight = parseFloat(document.getElementById("weight").value);
