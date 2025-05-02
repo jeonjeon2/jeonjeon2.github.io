@@ -307,17 +307,15 @@
         let total = principal;
     
         for (let i = 1; i <= periods; i++) {
-          const prevTotal = total;
           total = total * (1 + r);
-    
-          const profit = total - prevTotal;
-          const profitRate = profit / prevTotal;  // 소수 형태
+          const profit = total - principal;
+          const cumulativeRate = profit / principal;  // 누적 수익률
     
           results.push({
             periodLabel: `${i}${periodType === 'day' ? '일' : '개월'}`,
             profit,
             total,
-            profitRate
+            cumulativeRate
           });
         }
     
@@ -333,7 +331,7 @@
                 <th>기간</th>
                 <th>수익</th>
                 <th>총금액</th>
-                <th>수익률</th>
+                <th>누적 수익률</th>
               </tr>
             </thead>
             <tbody>`;
@@ -344,7 +342,7 @@
               <td>${item.periodLabel}</td>
               <td>${formatWithColoredDecimal(item.profit)}</td>
               <td>${formatWithColoredDecimal(item.total)}</td>
-              <td>${(item.profitRate * 100).toFixed(2)}%</td>
+              <td>${(item.cumulativeRate * 100).toFixed(2)}%</td>
             </tr>`;
         });
     
