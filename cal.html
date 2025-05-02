@@ -272,44 +272,44 @@
         
         <div id="i-form2" class="calc-form">
           <p>Calculates the number of words/characters.</p>
-          <textarea id="textInput" rows="8" cols="60" oninput="countTextStats()" placeholder="Enter text here..."></textarea>
-          <p>🔤 Total character count (including spaces): <strong id="charCount">0</strong></p>
-          <p>🆎 Total character count (excluding spaces): <strong id="charNoSpaceCount">0</strong></p>
-          <p>📝 Total word count: <strong id="wordCount">0</strong></p>
-          <p>📄 Total line count: <strong id="lineCount">0</strong></p>
+          <textarea id="textInput" rows="8" cols="60" oninput="countTextStats2()" placeholder="Enter text here..."></textarea>
+          <p>🔤 Total character count (including spaces): <strong id="charCount2">0</strong></p>
+          <p>🆎 Total character count (excluding spaces): <strong id="charNoSpaceCount2">0</strong></p>
+          <p>📝 Total word count: <strong id="wordCount2">0</strong></p>
+          <p>📄 Total line count: <strong id="lineCount2">0</strong></p>
         </div>
 
-        <div id="k-form" class="calc-form">
+        <div id="k-form2" class="calc-form">
           <p>🕒 Time Calculator</p>
           
           <h4>⏱️ Time Sum</h4>
           <label>Time 1:</label>
-          <input type="number" id="h1" placeholder="Hour" min="0">
-          <input type="number" id="m1" placeholder="Minute" min="0">
-          <input type="number" id="s1" placeholder="Second" min="0"><br><br>
+          <input type="number" id="h12" placeholder="Hour" min="0">
+          <input type="number" id="m12" placeholder="Minute" min="0">
+          <input type="number" id="s12" placeholder="Second" min="0"><br><br>
         
           <label>Time 2:</label>
-          <input type="number" id="h2" placeholder="Hour" min="0">
-          <input type="number" id="m2" placeholder="Minute" min="0">
-          <input type="number" id="s2" placeholder="Second" min="0"><br><br>
+          <input type="number" id="h22" placeholder="Hour" min="0">
+          <input type="number" id="m22" placeholder="Minute" min="0">
+          <input type="number" id="s22" placeholder="Second" min="0"><br><br>
         
-          <button onclick="sumTime()">🧮 Sum up</button>
-          <p>Total Sum: <strong id="sumResult">-</strong></p>
+          <button onclick="sumTime2()">🧮 Sum up</button>
+          <p>Total Sum: <strong id="sumResult2">-</strong></p>
         
           <hr>
         
           <h4>🧮 Time Difference Calculator</h4>
           <label>Start Time:</label>
-          <input type="time" id="startTime">
+          <input type="time" id="startTime2">
           <label>End Time:</label>
-          <input type="time" id="endTime"><br><br>
-          <button onclick="diffTime()">⏳ Calculate Difference</button>
-          <p>Time Difference: <strong id="diffResult">-</strong></p>
+          <input type="time" id="endTime2"><br><br>
+          <button onclick="diffTime2()">⏳ Calculate Difference</button>
+          <p>Time Difference: <strong id="diffResult2">-</strong></p>
         </div>
         
-        <div id="h-form" class="calc-form">
+        <div id="h-form2" class="calc-form">
           <p>Compares the unit prices of two products.</p>
-          <form oninput="calculateUnitPrice()">
+          <form oninput="calculateUnitPrice2()">
             <table border="0" cellspacing="10">
               <tr>
                 <th></th>
@@ -318,169 +318,169 @@
               </tr>
               <tr>
                 <td align="right">Product A</td>
-                <td><input type="number" id="priceA" step="any"></td>
-                <td><input type="number" id="amountA" step="any"></td>
+                <td><input type="number" id="priceA2" step="any"></td>
+                <td><input type="number" id="amountA2" step="any"></td>
               </tr>
               <tr>
                 <td align="right">Product B</td>
-                <td><input type="number" id="priceB" step="any"></td>
-                <td><input type="number" id="amountB" step="any"></td>
+                <td><input type="number" id="priceB2" step="any"></td>
+                <td><input type="number" id="amountB2" step="any"></td>
               </tr>
             </table>
-            <p>Unit Price of Product A: <strong id="unitPriceA">-</strong></p>
-            <p>Unit Price of Product B: <strong id="unitPriceB">-</strong></p>
-            <p id="betterDeal"></p>
+            <p>Unit Price of Product A: <strong id="unitPriceA2">-</strong></p>
+            <p>Unit Price of Product B: <strong id="unitPriceB2">-</strong></p>
+            <p id="betterDeal2"></p>
           </form>
         </div>
         
-        <div id="a-form" class="calc-form">
+        <div id="a-form2" class="calc-form">
           <p>Calculates the percentage of a relative to b.</p>
-          <form oninput="calculateChange()">
+          <form oninput="calculateChange2()">
             <table border="0" cellspacing="10">
               <tr>
-                <td align="right"><label for="a-value">Before Change (a):</label></td>
-                <td><input type="number" id="a-value" name="a-value" step="any"></td>
-              </tr>
-              <tr>
-                <td align="right"><label for="b-value">After Change (b):</label></td>
-                <td><input type="number" id="b-value" name="b-value" step="any"></td>
-              </tr>
-            </table>
-            <p>Rate of Change:&nbsp;&nbsp;&nbsp;<strong id="result">-</strong></p>
-          </form>
-        </div>
-
-        <div id="d-form" class="calc-form">
-          <p>Calculates the result based on the percentage of a.</p>
-          <form oninput="calculatePercentageChange()">
-            <table border="0" cellspacing="10">
-              <tr>
-                <td align="right"><label for="a-value2">Base Value (a):</label></td>
+                <td align="right"><label for="a-value2">Before Change (a):</label></td>
                 <td><input type="number" id="a-value2" name="a-value2" step="any"></td>
               </tr>
               <tr>
-                <td align="right"><label for="percent-value">Rate of Change (%):</label></td>
-                <td><input type="number" id="percent-value" name="percent-value" step="any"></td>
+                <td align="right"><label for="b-value2">After Change (b):</label></td>
+                <td><input type="number" id="b-value2" name="b-value2" step="any"></td>
               </tr>
             </table>
-            <p>Result Value:&nbsp;&nbsp;&nbsp;<strong id="result2">-</strong></p>
+            <p>Rate of Change:&nbsp;&nbsp;&nbsp;<strong id="result2">-</strong></p>
+          </form>
+        </div>
+
+        <div id="d-form2" class="calc-form">
+          <p>Calculates the result based on the percentage of a.</p>
+          <form oninput="calculatePercentageChange2()">
+            <table border="0" cellspacing="10">
+              <tr>
+                <td align="right"><label for="a-value22">Base Value (a):</label></td>
+                <td><input type="number" id="a-value22" name="a-value22" step="any"></td>
+              </tr>
+              <tr>
+                <td align="right"><label for="percent-value2">Rate of Change (%):</label></td>
+                <td><input type="number" id="percent-value2" name="percent-value2" step="any"></td>
+              </tr>
+            </table>
+            <p>Result Value:&nbsp;&nbsp;&nbsp;<strong id="result22">-</strong></p>
           </form>
         </div>
 
 
-        <div id="e-form" class="calc-form">
+        <div id="e-form2" class="calc-form">
           <p>Calculates Basal Metabolic Rate (BMR)</p>
-          <form oninput="calculateBMR()">
+          <form oninput="calculateBMR2()">
             <table border="0" cellspacing="10">
               <tr>
                 <td align="right"><label>Gender:</label></td>
                 <td>
-                  <input type="radio" id="bmr-male" name="bmr-gender" value="male" checked>
-                  <label for="bmr-male">Male</label>&nbsp;&nbsp;&nbsp;
-                  <input type="radio" id="bmr-female" name="bmr-gender" value="female">
-                  <label for="bmr-female">Female</label>
+                  <input type="radio" id="bmr-male2" name="bmr-gender2" value="male" checked>
+                  <label for="bmr-male2">Male</label>&nbsp;&nbsp;&nbsp;
+                  <input type="radio" id="bmr-female2" name="bmr-gender2" value="female">
+                  <label for="bmr-female2">Female</label>
                 </td>
               </tr>
               <tr>
-                <td align="right"><label for="bmr-age">Age:</label></td>
-                <td><input type="number" id="bmr-age" step="1"></td>
+                <td align="right"><label for="bmr-ag2e">Age:</label></td>
+                <td><input type="number" id="bmr-age2" step="1"></td>
               </tr>
               <tr>
-                <td align="right"><label for="bmr-height">Height (cm):</label></td>
-                <td><input type="number" id="bmr-height" step="any"></td>
+                <td align="right"><label for="bmr-height2">Height (cm):</label></td>
+                <td><input type="number" id="bmr-height2" step="any"></td>
               </tr>
               <tr>
-                <td align="right"><label for="bmr-weight">Weight (kg):</label></td>
-                <td><input type="number" id="bmr-weight" step="any"></td>
+                <td align="right"><label for="bmr-weight2">Weight (kg):</label></td>
+                <td><input type="number" id="bmr-weight2" step="any"></td>
               </tr>
             </table>
-            <p>BMR:&nbsp;&nbsp;&nbsp;<strong id="bmr-result">-</strong> kcal/day</p>
+            <p>BMR:&nbsp;&nbsp;&nbsp;<strong id="bmr-result2">-</strong> kcal/day</p>
           </form>
         </div>
 
-        <div id="g-form" class="calc-form">
+        <div id="g-form2" class="calc-form">
           <p>Calculates D-Day</p>
-          <form oninput="calculateDday()">
+          <form oninput="calculateDday2()">
             <table border="0" cellspacing="10">
               <tr>
-                <td align="right"><label for="target-date">Target Date:</label></td>
-                <td><input type="date" id="target-date" name="target-date"></td>
+                <td align="right"><label for="target-date2">Target Date:</label></td>
+                <td><input type="date" id="target-date2" name="target-date2"></td>
               </tr>
             </table>
-            <p>D-Day:&nbsp;&nbsp;&nbsp;<strong id="dday-result">-</strong></p>
+            <p>D-Day:&nbsp;&nbsp;&nbsp;<strong id="dday-result2">-</strong></p>
           </form>
         </div>
         
-        <div id="b-form" class="calc-form">
+        <div id="b-form2" class="calc-form">
           <p>Calculates Body Mass Index (BMI)</p>
-          <form oninput="calculateBMI()">
+          <form oninput="calculateBMI2()">
             <table border="0" cellspacing="10">
               <tr>
-                <td align="right"><label for="height">Height (cm):</label></td>
-                <td><input type="number" id="height" name="height" step="any"></td>
+                <td align="right"><label for="height2">Height (cm):</label></td>
+                <td><input type="number" id="height2" name="height2" step="any"></td>
               </tr>
               <tr>
-                <td align="right"><label for="weight">Weight (kg):</label></td>
-                <td><input type="number" id="weight" name="weight" step="any"></td>
+                <td align="right"><label for="weight2">Weight (kg):</label></td>
+                <td><input type="number" id="weight2" name="weight2" step="any"></td>
               </tr>
             </table>
-            <p>BMI:&nbsp;&nbsp;&nbsp;<strong id="bmi-result">-</strong></p>
+            <p>BMI:&nbsp;&nbsp;&nbsp;<strong id="bmi-result2">-</strong></p>
           </form>
         </div>
 
-        <div id="c-form" class="calc-form">
-          <form oninput="calculateSimpleInterest()">
+        <div id="c-form2" class="calc-form">
+          <form oninput="calculateSimpleInterest2()">
             <p>Calculates Simple Interest</p>
             <table border="0" cellspacing="10">
               <tr>
-                <td align="right"><label for="principal">Principal:</label></td>
-                <td><input type="number" id="principal" name="principal" step="any"></td>
+                <td align="right"><label for="principal2">Principal:</label></td>
+                <td><input type="number" id="principal2" name="principal2" step="any"></td>
               </tr>
               <tr>
-                <td align="right"><label for="rate">Interest Rate (%):</label></td>
-                <td><input type="number" id="rate" name="rate" step="any"></td>
+                <td align="right"><label for="rate2">Interest Rate (%):</label></td>
+                <td><input type="number" id="rate2" name="rate2" step="any"></td>
               </tr>
               <tr>
-                <td align="right"><label for="time">Period (Years):</label></td>
-                <td><input type="number" id="time" name="time" step="any"></td>
+                <td align="right"><label for="time2">Period (Years):</label></td>
+                <td><input type="number" id="time2" name="time2" step="any"></td>
               </tr>
             </table>
-            <p>Interest Amount:&nbsp;&nbsp;&nbsp;<strong id="interest-result">-</strong></p>
-            <p>Total Amount:&nbsp;&nbsp;&nbsp;<strong id="total-result">-</strong></p>
+            <p>Interest Amount:&nbsp;&nbsp;&nbsp;<strong id="interest-result2">-</strong></p>
+            <p>Total Amount:&nbsp;&nbsp;&nbsp;<strong id="total-result2">-</strong></p>
           </form>
-          <div id="simple-table-wrapper"></div>
+          <div id="simple-table-wrapper2"></div>
         </div>
 
-        <div id="f-form" class="calc-form">
-          <form oninput="calculateCompoundInterest()">
+        <div id="f-form2" class="calc-form">
+          <form oninput="calculateCompoundInterest2()">
             <p>Calculates Compound Interest</p>
             <table border="0" cellspacing="10">
               <tr>
-                <td align="right"><label for="c-principal">Principal:</label></td>
-                <td><input type="number" id="c-principal" step="any"></td>
+                <td align="right"><label for="c-principal2">Principal:</label></td>
+                <td><input type="number" id="c-principal2" step="any"></td>
               </tr>
               <tr>
-                <td align="right"><label for="c-rate">Interest Rate (%):</label></td>
-                <td><input type="number" id="c-rate" step="any"></td>
+                <td align="right"><label for="c-rate2">Interest Rate (%):</label></td>
+                <td><input type="number" id="c-rate2" step="any"></td>
               </tr>
               <tr>
                 <td align="right">Time Period Unit:</td>
                 <td>
-                  <label><input type="radio" name="c-period-type" value="day" checked> Days</label>
-                  <label><input type="radio" name="c-period-type" value="month"> Months</label>
+                  <label><input type="radio" name="c-period-type2" value="day" checked> Days</label>
+                  <label><input type="radio" name="c-period-type2" value="month"> Months</label>
                 </td>
               </tr>
               <tr>
-                <td align="right"><label for="c-time">Period:</label></td>
-                <td><input type="number" id="c-time" step="any"></td>
+                <td align="right"><label for="c-time2">Period:</label></td>
+                <td><input type="number" id="c-time2" step="any"></td>
               </tr>
             </table>
         
-            <p>Total Interest:&nbsp;&nbsp;&nbsp;<strong id="c-interest-result">-</strong></p>
-            <p>otal Amount:&nbsp;&nbsp;&nbsp;<strong id="c-total-result">-</strong></p>
+            <p>Total Interest:&nbsp;&nbsp;&nbsp;<strong id="c-interest-result2">-</strong></p>
+            <p>otal Amount:&nbsp;&nbsp;&nbsp;<strong id="c-total-result2">-</strong></p>
           </form>
         
-          <div id="c-table-wrapper" style="margin-top: 20px;"></div>
+          <div id="c-table-wrapper2" style="margin-top: 20px;"></div>
         </div>
       </div>
     </section>
