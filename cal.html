@@ -16,6 +16,7 @@
       <div class="tool-section">
         <p>
           <button class="form-toggle-btn" data-target="a-form">퍼센트</button>&nbsp;&nbsp;&nbsp;
+          <button class="form-toggle-btn" data-target="d-form">변동률</button>&nbsp;&nbsp;&nbsp;
           <button class="form-toggle-btn" data-target="b-form">BMI</button>&nbsp;&nbsp;&nbsp;
           <button class="form-toggle-btn" data-target="c-form">단리</button>
         </p>
@@ -34,6 +35,23 @@
               </tr>
             </table>
             <p>변동률:&nbsp;&nbsp;&nbsp;<strong id="result">-</strong></p>
+          </form>
+        </div>
+
+        <div id="d-form" class="calc-form">
+          <p>a와 %값을 입력하면 결과를 계산합니다.</p>
+          <form oninput="calculatePercentageChange()">
+            <table border="0" cellspacing="10">
+              <tr align="right">
+                <td><label for="a-value">기본 값(a):</label></td>
+                <td><input type="number" id="a-value" name="a-value" step="any"></td>
+              </tr>
+              <tr align="right">
+                <td><label for="percent-value">변동률(%):</label></td>
+                <td><input type="number" id="percent-value" name="percent-value" step="any"></td>
+              </tr>
+            </table>
+            <p>결과 값:&nbsp;&nbsp;&nbsp;<strong id="result">-</strong></p>
           </form>
         </div>
       
@@ -127,6 +145,19 @@
       }
     }
 
+    function calculatePercentageChange() {
+      const a = parseFloat(document.getElementById("a-value").value);
+      const percent = parseFloat(document.getElementById("percent-value").value);
+      const result = document.getElementById("result");
+    
+      if (!isNaN(a) && !isNaN(percent)) {
+        const b = a * (1 + percent / 100);
+        result.textContent = b.toFixed(2);
+      } else {
+        result.textContent = "-";
+      }
+    }
+    
     function calculateBMI() {
       const weight = parseFloat(document.getElementById("weight").value);
       const height = parseFloat(document.getElementById("height").value);
