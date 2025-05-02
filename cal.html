@@ -178,7 +178,7 @@
       if (!isNaN(a) && !isNaN(b) && a !== 0) {
         const change = ((b - a) / a) * 100;
         const sign = change >= 0 ? "+" : "";
-        result.textContent = `${sign}${change.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%`;
+        result.textContent = `${sign}${Math.floor(change).toLocaleString();}%`;
       } else {
         result.textContent = "-";
       }
@@ -191,7 +191,7 @@
     
       if (!isNaN(a) && !isNaN(percent)) {
         const b = a * (1 + percent / 100);
-        result.textContent = b.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        result.textContent = Math.floor(b).toLocaleString();
       } else {
         result.textContent = "-";
       }
@@ -212,7 +212,7 @@
         } else {
           bmr = 10 * weight + 6.25 * height - 5 * age - 161;
         }
-        result.textContent = bmr.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        result.textContent = Math.floor(bmr).toLocaleString();
       } else {
         result.textContent = "-";
       }
@@ -228,7 +228,7 @@
       if (!isNaN(weight) && !isNaN(height) && height > 0) {
         const heightInMeters = height / 100;
         const bmi = weight / (heightInMeters * heightInMeters);
-        result.textContent = bmi.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        result.textContent = Math.floor(bmi).toLocaleString();
       } else {
         result.textContent = "-";
       }
@@ -244,8 +244,8 @@
       if (!isNaN(principal) && !isNaN(rate) && !isNaN(time)) {
         const interest = (principal * rate * time) / 100;
         const total = principal + interest;
-        interestResult.textContent = interest.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-        totalResult.textContent = total.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        interestResult.textContent = Math.floor(interest).toLocaleString();
+        totalResult.textContent = Math.floor(total).toLocaleString();
       } else {
         interestResult.textContent = "-";
         totalResult.textContent = "-";
