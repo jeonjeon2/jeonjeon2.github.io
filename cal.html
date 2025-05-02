@@ -202,11 +202,13 @@
       });
     });
 
-
+    // 소수점 아래 2자리까지 고정하고, 소수점 부분만 파란색 span으로 인라인 스타일 적용
     function formatWithColoredDecimal(value) {
       const parts = value.toFixed(2).split(".");
-      return `${Number(parts[0]).toLocaleString()}<span style="color: blue;">.${parts[1]}</span>`;
+      const intPart = Number(parts[0]).toLocaleString();
+      return `${intPart}<span style="color:blue">.${parts[1]}</span>`;
     }
+
 
     function calculateChange() {
       const a = parseFloat(document.getElementById("a-value").value);
@@ -334,18 +336,9 @@
       }
     }
 
-    function formatWithColoredDecimal(value) {
-      const parts = value.toFixed(2).split(".");
-      const intPart = Number(parts[0]).toLocaleString();
-      return `${intPart}<span class="decimal">.${parts[1]}</span>`;
-    }
 
-    // 소수점 아래 2자리까지 고정하고, 소수점 부분만 파란색 span으로 인라인 스타일 적용
-    function formatWithColoredDecimal(value) {
-      const parts = value.toFixed(2).split(".");
-      const intPart = Number(parts[0]).toLocaleString();
-      return `${intPart}<span style="color:blue">.${parts[1]}</span>`;
-    }
+
+    
 
     function calculateCompoundInterest() {
       const principal = parseFloat(document.getElementById("c-principal").value);
