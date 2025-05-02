@@ -22,6 +22,10 @@
           <label><input type="radio" name="code-type" value="qrcode" onchange="toggleMode()"> QR코드</label>
 
           <div id="barcode-options" style="margin-top: 10px;">
+            <label for="input-value" style="margin-top: 10px;">코드 값 입력:</label>
+            <input type="text" id="input-value" placeholder="예: 123456789012" />
+            <button onclick="generate()" style="margin-top: 10px;">생성</button>
+            
             <label for="barcode-format">바코드 유형:</label>
             <select id="barcode-format">
               <option value="CODE128">CODE128 auto</option>
@@ -43,10 +47,7 @@
             </select>
           </div>
 
-          <label for="input-value" style="margin-top: 10px;">코드 값 입력:</label>
-          <input type="text" id="input-value" placeholder="예: 123456789012" />
-
-          <button onclick="generate()" style="margin-top: 10px;">생성</button>
+          
           <button onclick="downloadBarcode()">바코드 다운로드</button>
           <button onclick="downloadQRCode()">QR코드 다운로드</button>
           <canvas id="barcode-canvas" style="margin-top: 20px;"></canvas>
