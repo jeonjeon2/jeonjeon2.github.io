@@ -226,7 +226,7 @@
       if (!isNaN(a) && !isNaN(b) && a !== 0) {
         const change = ((b - a) / a) * 100;
         const sign = change >= 0 ? "+" : "";
-        result.textContent = `${sign}${formatWithColoredDecimal(change)}%`;
+        result.innerHTML = `${sign}${formatWithColoredDecimal(change)}%`;
       } else {
         result.textContent = "-";
       }
@@ -239,7 +239,7 @@
     
       if (!isNaN(a) && !isNaN(percent)) {
         const b = a * (1 + percent / 100);
-        result.textContent = formatWithColoredDecimal(b);
+        result.innerHTML = formatWithColoredDecimal(b);
       } else {
         result.textContent = "-";
       }
@@ -260,7 +260,7 @@
         } else {
           bmr = 10 * weight + 6.25 * height - 5 * age - 161;
         }
-        result.textContent = formatWithColoredDecimal(bmr);
+        result.innerHTML = formatWithColoredDecimal(bmr);
       } else {
         result.textContent = "-";
       }
@@ -276,7 +276,7 @@
       if (!isNaN(weight) && !isNaN(height) && height > 0) {
         const heightInMeters = height / 100;
         const bmi = weight / (heightInMeters * heightInMeters);
-        result.textContent = formatWithColoredDecimal(bmi);
+        result.innerHTML = formatWithColoredDecimal(bmi);
       } else {
         result.textContent = "-";
       }
@@ -292,8 +292,8 @@
       if (!isNaN(principal) && !isNaN(rate) && !isNaN(time)) {
         const interest = (principal * rate * time) / 100;
         const total = principal + interest;
-        interestResult.textContent = formatWithColoredDecimal(interest);
-        totalResult.textContent = formatWithColoredDecimal(total);
+        interestResult.innerHTML = formatWithColoredDecimal(interest);
+        totalResult.innerHTML = formatWithColoredDecimal(total);
       } else {
         interestResult.textContent = "-";
         totalResult.textContent = "-";
@@ -311,8 +311,8 @@
         const frequency = 1;  // 연 1회 복리로 고정
         const total = principal * Math.pow((1 + rate / (100 * frequency)), frequency * time);
         const interest = total - principal;
-        interestResult.textContent = formatWithColoredDecimal(interest);
-        totalResult.textContent = formatWithColoredDecimal(total);
+        interestResult.innerHTML = formatWithColoredDecimal(interest);
+        totalResult.innerHTML = formatWithColoredDecimal(total);
       } else {
         interestResult.textContent = "-";
         totalResult.textContent = "-";
@@ -330,8 +330,8 @@
         const frequency = 12;  // 월 복리: 연 12회
         const total = principal * Math.pow((1 + rate / (100 * frequency)), frequency * time);
         const interest = total - principal;
-        interestResult.textContent = formatWithColoredDecimal(interest);
-        totalResult.textContent = formatWithColoredDecimal(total);
+        interestResult.innerHTML = formatWithColoredDecimal(interest);
+        totalResult.innerHTML = formatWithColoredDecimal(total);
       } else {
         interestResult.textContent = "-";
         totalResult.textContent = "-";
