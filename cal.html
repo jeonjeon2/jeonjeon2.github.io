@@ -17,140 +17,140 @@
         <h2>계산기</h2>
         <p>
           <button class="form-toggle-btn" data-target="a-form">퍼센트 (Percentage)</button>&nbsp;&nbsp;&nbsp;
-          <button class="form-toggle-btn" data-target="d-form">변동률 (Rate of Change)</button>&nbsp;&nbsp;&nbsp;
-          <button class="form-toggle-btn" data-target="c-form">단리 (Simple Interest)</button>&nbsp;&nbsp;&nbsp;
-          <button class="form-toggle-btn" data-target="f-form">복리 (Compound Interest)</button>&nbsp;&nbsp;&nbsp;
-          <button class="form-toggle-btn" data-target="e-form">기초대사량 (BMR)</button>&nbsp;&nbsp;&nbsp;
-          <button class="form-toggle-btn" data-target="b-form">체질량지수 (BMI)</button>&nbsp;&nbsp;&nbsp;
-          <button class="form-toggle-btn" data-target="k-form">시간 (Time)</button>&nbsp;&nbsp;&nbsp;
+          <button class="form-toggle-btn" data-target="d-form">변동률</button>&nbsp;&nbsp;&nbsp;
+          <button class="form-toggle-btn" data-target="c-form">단리</button>&nbsp;&nbsp;&nbsp;
+          <button class="form-toggle-btn" data-target="f-form">복리</button>&nbsp;&nbsp;&nbsp;
+          <button class="form-toggle-btn" data-target="e-form">기초대사량</button>&nbsp;&nbsp;&nbsp;
+          <button class="form-toggle-btn" data-target="b-form">체질량지수</button>&nbsp;&nbsp;&nbsp;
+          <button class="form-toggle-btn" data-target="k-form">시간</button>&nbsp;&nbsp;&nbsp;
           <button class="form-toggle-btn" data-target="g-form">D-day</button>&nbsp;&nbsp;&nbsp;
-          <button class="form-toggle-btn" data-target="h-form">단가 (Unit Price)</button>&nbsp;&nbsp;&nbsp;
-          <button class="form-toggle-btn" data-target="i-form">문자 (Text)</button>&nbsp;&nbsp;&nbsp;
+          <button class="form-toggle-btn" data-target="h-form">단가</button>&nbsp;&nbsp;&nbsp;
+          <button class="form-toggle-btn" data-target="i-form">문자</button>&nbsp;&nbsp;&nbsp;
         </p>
 
         
         
         <div id="i-form" class="calc-form">
-          <p>단어 / 문자 수를 계산합니다. (Calculates the number of words/characters.)</p>
+          <p>단어 / 문자 수를 계산합니다.</p>
           <textarea id="textInput" rows="8" cols="60" oninput="countTextStats()" placeholder="Enter text here..."></textarea>
-          <p>🔤 총 문자 수 (공백 포함) (Total character count (including spaces)): <strong id="charCount">0</strong></p>
-          <p>🆎 총 문자 수 (공백 제외) Total character count (excluding spaces): <strong id="charNoSpaceCount">0</strong></p>
-          <p>📝 총 단어 수 (Total word count): <strong id="wordCount">0</strong></p>
-          <p>📄 총 줄 수 (Total line count): <strong id="lineCount">0</strong></p>
+          <p>🔤 총 문자 수 (공백 포함): <strong id="charCount">0</strong></p>
+          <p>🆎 총 문자 수 (공백 제외): <strong id="charNoSpaceCount">0</strong></p>
+          <p>📝 총 단어 수: <strong id="wordCount">0</strong></p>
+          <p>📄 총 줄 수: <strong id="lineCount">0</strong></p>
         </div>
 
         <div id="k-form" class="calc-form">
-          <p>🕒 시간 계산기 (Time Calculator)</p>
+          <p>🕒 시간 계산기</p>
           
-          <h4>⏱️ 시간 합산 (Time Sum)</h4>
-          <label>시간 1 (Time 1):</label>
-          <input type="number" id="h1" placeholder="시 (Hour)" min="0">
-          <input type="number" id="m1" placeholder="분 (Minute)" min="0">
-          <input type="number" id="s1" placeholder="초 (Second)" min="0"><br><br>
+          <h4>⏱️ 시간 합산</h4>
+          <label>시간 1:</label>
+          <input type="number" id="h1" placeholder="시" min="0">
+          <input type="number" id="m1" placeholder="분" min="0">
+          <input type="number" id="s1" placeholder="초" min="0"><br><br>
         
-          <label>시간 2 (Time 2):</label>
-          <input type="number" id="h2" placeholder="시 (Hour)" min="0">
-          <input type="number" id="m2" placeholder="분 (Minute)" min="0">
-          <input type="number" id="s2" placeholder="초 (Second)" min="0"><br><br>
+          <label>시간 2:</label>
+          <input type="number" id="h2" placeholder="시" min="0">
+          <input type="number" id="m2" placeholder="분" min="0">
+          <input type="number" id="s2" placeholder="초)" min="0"><br><br>
         
-          <button onclick="sumTime()">🧮 합산하기 (Sum up)</button>
-          <p>총 합계 (Total Sum): <strong id="sumResult">-</strong></p>
+          <button onclick="sumTime()">🧮 합산하기</button>
+          <p>총 합계: <strong id="sumResult">-</strong></p>
         
           <hr>
         
-          <h4>🧮 시간 차이 계산 (Time Difference Calculator)</h4>
-          <label>시작 시간 (Start Time):</label>
+          <h4>🧮 시간 차이 계산</h4>
+          <label>시작 시간:</label>
           <input type="time" id="startTime">
-          <label>종료 시간 (End Time):</label>
+          <label>종료 시간:</label>
           <input type="time" id="endTime"><br><br>
-          <button onclick="diffTime()">⏳ 차이 계산 (Calculate Difference)</button>
-          <p>시간 차이 (Time Difference): <strong id="diffResult">-</strong></p>
+          <button onclick="diffTime()">⏳ 차이 계산</button>
+          <p>시간 차이: <strong id="diffResult">-</strong></p>
         </div>
         
         <div id="h-form" class="calc-form">
-          <p>두 상품의 단가를 비교 계산합니다. (Compares the unit prices of two products.)</p>
+          <p>두 상품의 단가를 비교 계산합니다.</p>
           <form oninput="calculateUnitPrice()">
             <table border="0" cellspacing="10">
               <tr>
                 <th></th>
-                <th>가격 (Price)</th>
-                <th>용량 (Capacity)</th>
+                <th>가격</th>
+                <th>용량</th>
               </tr>
               <tr>
-                <td align="right">상품 A (Product A)</td>
+                <td align="right">상품 A</td>
                 <td><input type="number" id="priceA" step="any"></td>
                 <td><input type="number" id="amountA" step="any"></td>
               </tr>
               <tr>
-                <td align="right">상품 B (Product B)</td>
+                <td align="right">상품 B</td>
                 <td><input type="number" id="priceB" step="any"></td>
                 <td><input type="number" id="amountB" step="any"></td>
               </tr>
             </table>
-            <p>상품 A 단가 (Unit Price of Product A): <strong id="unitPriceA">-</strong></p>
-            <p>상품 B 단가 (Unit Price of Product B): <strong id="unitPriceB">-</strong></p>
+            <p>상품 A 단가: <strong id="unitPriceA">-</strong></p>
+            <p>상품 B 단가: <strong id="unitPriceB">-</strong></p>
             <p id="betterDeal"></p>
           </form>
         </div>
         
         <div id="a-form" class="calc-form">
-          <p>a, b에 대한 %를 계산합니다. (Calculates the percentage of a relative to b.)</p>
+          <p>a, b에 대한 %를 계산합니다.</p>
           <form oninput="calculateChange()">
             <table border="0" cellspacing="10">
               <tr>
-                <td align="right"><label for="a-value">변동 전(a) (Before Change (a)):</label></td>
+                <td align="right"><label for="a-value">변동 전(a):</label></td>
                 <td><input type="number" id="a-value" name="a-value" step="any"></td>
               </tr>
               <tr>
-                <td align="right"><label for="b-value">변동 후(b) (After Change (b)):</label></td>
+                <td align="right"><label for="b-value">변동 후(b):</label></td>
                 <td><input type="number" id="b-value" name="b-value" step="any"></td>
               </tr>
             </table>
-            <p>변동률 (Rate of Change):&nbsp;&nbsp;&nbsp;<strong id="result">-</strong></p>
+            <p>변동률:&nbsp;&nbsp;&nbsp;<strong id="result">-</strong></p>
           </form>
         </div>
 
         <div id="d-form" class="calc-form">
-          <p>a의 %에 대한 결과를 계산합니다. (Calculates the result based on the percentage of a.)</p>
+          <p>a의 %에 대한 결과를 계산합니다.</p>
           <form oninput="calculatePercentageChange()">
             <table border="0" cellspacing="10">
               <tr>
-                <td align="right"><label for="a-value2">기본 값(a) (Base Value (a)):</label></td>
+                <td align="right"><label for="a-value2">기본 값(a):</label></td>
                 <td><input type="number" id="a-value2" name="a-value2" step="any"></td>
               </tr>
               <tr>
-                <td align="right"><label for="percent-value">변동률(%) (Rate of Change (%)):</label></td>
+                <td align="right"><label for="percent-value">변동률(%):</label></td>
                 <td><input type="number" id="percent-value" name="percent-value" step="any"></td>
               </tr>
             </table>
-            <p>결과 값 (Result Value):&nbsp;&nbsp;&nbsp;<strong id="result2">-</strong></p>
+            <p>결과 값:&nbsp;&nbsp;&nbsp;<strong id="result2">-</strong></p>
           </form>
         </div>
 
 
         <div id="e-form" class="calc-form">
-          <p>기초대사량(BMR)을 계산합니다. (Calculates Basal Metabolic Rate (BMR))</p>
+          <p>기초대사량(BMR)을 계산합니다.</p>
           <form oninput="calculateBMR()">
             <table border="0" cellspacing="10">
               <tr>
-                <td align="right"><label>성별 (Gender):</label></td>
+                <td align="right"><label>성별:</label></td>
                 <td>
                   <input type="radio" id="bmr-male" name="bmr-gender" value="male" checked>
-                  <label for="bmr-male">남성 (Male)</label>&nbsp;&nbsp;&nbsp;
+                  <label for="bmr-male">남성</label>&nbsp;&nbsp;&nbsp;
                   <input type="radio" id="bmr-female" name="bmr-gender" value="female">
-                  <label for="bmr-female">여성 (Female)</label>
+                  <label for="bmr-female">여성</label>
                 </td>
               </tr>
               <tr>
-                <td align="right"><label for="bmr-age">나이 (Age):</label></td>
+                <td align="right"><label for="bmr-age">나이:</label></td>
                 <td><input type="number" id="bmr-age" step="1"></td>
               </tr>
               <tr>
-                <td align="right"><label for="bmr-height">키(cm) (Height (cm)):</label></td>
+                <td align="right"><label for="bmr-height">키(cm):</label></td>
                 <td><input type="number" id="bmr-height" step="any"></td>
               </tr>
               <tr>
-                <td align="right"><label for="bmr-weight">몸무게(kg) (Weight (kg)):</label></td>
+                <td align="right"><label for="bmr-weight">몸무게(kg)):</label></td>
                 <td><input type="number" id="bmr-weight" step="any"></td>
               </tr>
             </table>
@@ -159,11 +159,11 @@
         </div>
 
         <div id="g-form" class="calc-form">
-          <p>D-Day를 계산합니다. (Calculates D-Day)</p>
+          <p>D-Day를 계산합니다.</p>
           <form oninput="calculateDday()">
             <table border="0" cellspacing="10">
               <tr>
-                <td align="right"><label for="target-date">목표 날짜 (Target Date):</label></td>
+                <td align="right"><label for="target-date">목표 날짜:</label></td>
                 <td><input type="date" id="target-date" name="target-date"></td>
               </tr>
             </table>
@@ -172,15 +172,15 @@
         </div>
         
         <div id="b-form" class="calc-form">
-          <p>체질량지수(BMI)을 계산합니다. (Calculates Body Mass Index (BMI))</p>
+          <p>체질량지수(BMI)을 계산합니다.</p>
           <form oninput="calculateBMI()">
             <table border="0" cellspacing="10">
               <tr>
-                <td align="right"><label for="height">키(cm) (Height (cm)):</label></td>
+                <td align="right"><label for="height">키(cm):</label></td>
                 <td><input type="number" id="height" name="height" step="any"></td>
               </tr>
               <tr>
-                <td align="right"><label for="weight">몸무게(kg) (Weight (kg)):</label></td>
+                <td align="right"><label for="weight">몸무게(kg):</label></td>
                 <td><input type="number" id="weight" name="weight" step="any"></td>
               </tr>
             </table>
@@ -190,54 +190,54 @@
 
         <div id="c-form" class="calc-form">
           <form oninput="calculateSimpleInterest()">
-            <p>단리 이자를 계산합니다. (Calculates Simple Interest)</p>
+            <p>단리 이자를 계산합니다.</p>
             <table border="0" cellspacing="10">
               <tr>
-                <td align="right"><label for="principal">원금 (Principal):</label></td>
+                <td align="right"><label for="principal">원금:</label></td>
                 <td><input type="number" id="principal" name="principal" step="any"></td>
               </tr>
               <tr>
-                <td align="right"><label for="rate">이자율(%) (Interest Rate (%)):</label></td>
+                <td align="right"><label for="rate">이자율(%):</label></td>
                 <td><input type="number" id="rate" name="rate" step="any"></td>
               </tr>
               <tr>
-                <td align="right"><label for="time">기간(년) (Period (Years)):</label></td>
+                <td align="right"><label for="time">기간(년):</label></td>
                 <td><input type="number" id="time" name="time" step="any"></td>
               </tr>
             </table>
-            <p>이자액 (Interest Amount):&nbsp;&nbsp;&nbsp;<strong id="interest-result">-</strong></p>
-            <p>총액 (Total Amount):&nbsp;&nbsp;&nbsp;<strong id="total-result">-</strong></p>
+            <p>이자액:&nbsp;&nbsp;&nbsp;<strong id="interest-result">-</strong></p>
+            <p>총액:&nbsp;&nbsp;&nbsp;<strong id="total-result">-</strong></p>
           </form>
           <div id="simple-table-wrapper"></div>
         </div>
 
         <div id="f-form" class="calc-form">
           <form oninput="calculateCompoundInterest()">
-            <p>복리 이자를 계산합니다. (Calculates Compound Interest)</p>
+            <p>복리 이자를 계산합니다.</p>
             <table border="0" cellspacing="10">
               <tr>
-                <td align="right"><label for="c-principal">원금 (Principal):</label></td>
+                <td align="right"><label for="c-principal">원금:</label></td>
                 <td><input type="number" id="c-principal" step="any"></td>
               </tr>
               <tr>
-                <td align="right"><label for="c-rate">이자율(%) (Interest Rate (%)):</label></td>
+                <td align="right"><label for="c-rate">이자율(%):</label></td>
                 <td><input type="number" id="c-rate" step="any"></td>
               </tr>
               <tr>
-                <td align="right">기간 단위 (Time Period Unit):</td>
+                <td align="right">기간 단위:</td>
                 <td>
-                  <label><input type="radio" name="c-period-type" value="day" checked> 일 (Days)</label>
-                  <label><input type="radio" name="c-period-type" value="month"> 개월 (Months)</label>
+                  <label><input type="radio" name="c-period-type" value="day" checked> 일</label>
+                  <label><input type="radio" name="c-period-type" value="month"> 개월</label>
                 </td>
               </tr>
               <tr>
-                <td align="right"><label for="c-time">기간 (Period):</label></td>
+                <td align="right"><label for="c-time">기간:</label></td>
                 <td><input type="number" id="c-time" step="any"></td>
               </tr>
             </table>
         
-            <p>총 이자 (Total Interest):&nbsp;&nbsp;&nbsp;<strong id="c-interest-result">-</strong></p>
-            <p>총액 (Total Amount):&nbsp;&nbsp;&nbsp;<strong id="c-total-result">-</strong></p>
+            <p>총 이자:&nbsp;&nbsp;&nbsp;<strong id="c-interest-result">-</strong></p>
+            <p>총액:&nbsp;&nbsp;&nbsp;<strong id="c-total-result">-</strong></p>
           </form>
         
           <div id="c-table-wrapper" style="margin-top: 20px;"></div>
@@ -248,141 +248,141 @@
         <br /><br /><br /><br />
         <h2>Calculator</h2>
         <p>
-          <button class="form-toggle-btn" data-target="a-form">퍼센트 (Percentage)</button>&nbsp;&nbsp;&nbsp;
-          <button class="form-toggle-btn" data-target="d-form">변동률 (Rate of Change)</button>&nbsp;&nbsp;&nbsp;
-          <button class="form-toggle-btn" data-target="c-form">단리 (Simple Interest)</button>&nbsp;&nbsp;&nbsp;
-          <button class="form-toggle-btn" data-target="f-form">복리 (Compound Interest)</button>&nbsp;&nbsp;&nbsp;
-          <button class="form-toggle-btn" data-target="e-form">기초대사량 (BMR)</button>&nbsp;&nbsp;&nbsp;
-          <button class="form-toggle-btn" data-target="b-form">체질량지수 (BMI)</button>&nbsp;&nbsp;&nbsp;
-          <button class="form-toggle-btn" data-target="k-form">시간 (Time)</button>&nbsp;&nbsp;&nbsp;
+          <button class="form-toggle-btn" data-target="a-form">Percentage</button>&nbsp;&nbsp;&nbsp;
+          <button class="form-toggle-btn" data-target="d-form">Rate of Change</button>&nbsp;&nbsp;&nbsp;
+          <button class="form-toggle-btn" data-target="c-form">Simple Interest</button>&nbsp;&nbsp;&nbsp;
+          <button class="form-toggle-btn" data-target="f-form">Compound Interest</button>&nbsp;&nbsp;&nbsp;
+          <button class="form-toggle-btn" data-target="e-form">BMR</button>&nbsp;&nbsp;&nbsp;
+          <button class="form-toggle-btn" data-target="b-form">BMI</button>&nbsp;&nbsp;&nbsp;
+          <button class="form-toggle-btn" data-target="k-form">Time</button>&nbsp;&nbsp;&nbsp;
           <button class="form-toggle-btn" data-target="g-form">D-day</button>&nbsp;&nbsp;&nbsp;
-          <button class="form-toggle-btn" data-target="h-form">단가 (Unit Price)</button>&nbsp;&nbsp;&nbsp;
-          <button class="form-toggle-btn" data-target="i-form">문자 (Text)</button>&nbsp;&nbsp;&nbsp;
+          <button class="form-toggle-btn" data-target="h-form">Unit Price</button>&nbsp;&nbsp;&nbsp;
+          <button class="form-toggle-btn" data-target="i-form">Text</button>&nbsp;&nbsp;&nbsp;
         </p>
 
         
         
         <div id="i-form" class="calc-form">
-          <p>단어 / 문자 수를 계산합니다. (Calculates the number of words/characters.)</p>
+          <p>Calculates the number of words/characters.</p>
           <textarea id="textInput" rows="8" cols="60" oninput="countTextStats()" placeholder="Enter text here..."></textarea>
-          <p>🔤 총 문자 수 (공백 포함) (Total character count (including spaces)): <strong id="charCount">0</strong></p>
-          <p>🆎 총 문자 수 (공백 제외) Total character count (excluding spaces): <strong id="charNoSpaceCount">0</strong></p>
-          <p>📝 총 단어 수 (Total word count): <strong id="wordCount">0</strong></p>
-          <p>📄 총 줄 수 (Total line count): <strong id="lineCount">0</strong></p>
+          <p>🔤 Total character count (including spaces): <strong id="charCount">0</strong></p>
+          <p>🆎 Total character count (excluding spaces): <strong id="charNoSpaceCount">0</strong></p>
+          <p>📝 Total word count: <strong id="wordCount">0</strong></p>
+          <p>📄 Total line count: <strong id="lineCount">0</strong></p>
         </div>
 
         <div id="k-form" class="calc-form">
-          <p>🕒 시간 계산기 (Time Calculator)</p>
+          <p>🕒 Time Calculator</p>
           
-          <h4>⏱️ 시간 합산 (Time Sum)</h4>
-          <label>시간 1 (Time 1):</label>
-          <input type="number" id="h1" placeholder="시 (Hour)" min="0">
-          <input type="number" id="m1" placeholder="분 (Minute)" min="0">
-          <input type="number" id="s1" placeholder="초 (Second)" min="0"><br><br>
+          <h4>⏱️ Time Sum</h4>
+          <label>Time 1:</label>
+          <input type="number" id="h1" placeholder="Hour" min="0">
+          <input type="number" id="m1" placeholder="Minute" min="0">
+          <input type="number" id="s1" placeholder="Second" min="0"><br><br>
         
-          <label>시간 2 (Time 2):</label>
-          <input type="number" id="h2" placeholder="시 (Hour)" min="0">
-          <input type="number" id="m2" placeholder="분 (Minute)" min="0">
-          <input type="number" id="s2" placeholder="초 (Second)" min="0"><br><br>
+          <label>Time 2:</label>
+          <input type="number" id="h2" placeholder="Hour" min="0">
+          <input type="number" id="m2" placeholder="Minute" min="0">
+          <input type="number" id="s2" placeholder="Second" min="0"><br><br>
         
-          <button onclick="sumTime()">🧮 합산하기 (Sum up)</button>
-          <p>총 합계 (Total Sum): <strong id="sumResult">-</strong></p>
+          <button onclick="sumTime()">🧮 Sum up</button>
+          <p>Total Sum: <strong id="sumResult">-</strong></p>
         
           <hr>
         
-          <h4>🧮 시간 차이 계산 (Time Difference Calculator)</h4>
-          <label>시작 시간 (Start Time):</label>
+          <h4>🧮 Time Difference Calculator</h4>
+          <label>Start Time:</label>
           <input type="time" id="startTime">
-          <label>종료 시간 (End Time):</label>
+          <label>End Time:</label>
           <input type="time" id="endTime"><br><br>
-          <button onclick="diffTime()">⏳ 차이 계산 (Calculate Difference)</button>
-          <p>시간 차이 (Time Difference): <strong id="diffResult">-</strong></p>
+          <button onclick="diffTime()">⏳ Calculate Difference</button>
+          <p>Time Difference: <strong id="diffResult">-</strong></p>
         </div>
         
         <div id="h-form" class="calc-form">
-          <p>두 상품의 단가를 비교 계산합니다. (Compares the unit prices of two products.)</p>
+          <p>Compares the unit prices of two products.</p>
           <form oninput="calculateUnitPrice()">
             <table border="0" cellspacing="10">
               <tr>
                 <th></th>
-                <th>가격 (Price)</th>
-                <th>용량 (Capacity)</th>
+                <th>Price</th>
+                <th>Capacity</th>
               </tr>
               <tr>
-                <td align="right">상품 A (Product A)</td>
+                <td align="right">Product A</td>
                 <td><input type="number" id="priceA" step="any"></td>
                 <td><input type="number" id="amountA" step="any"></td>
               </tr>
               <tr>
-                <td align="right">상품 B (Product B)</td>
+                <td align="right">Product B</td>
                 <td><input type="number" id="priceB" step="any"></td>
                 <td><input type="number" id="amountB" step="any"></td>
               </tr>
             </table>
-            <p>상품 A 단가 (Unit Price of Product A): <strong id="unitPriceA">-</strong></p>
-            <p>상품 B 단가 (Unit Price of Product B): <strong id="unitPriceB">-</strong></p>
+            <p>Unit Price of Product A: <strong id="unitPriceA">-</strong></p>
+            <p>Unit Price of Product B: <strong id="unitPriceB">-</strong></p>
             <p id="betterDeal"></p>
           </form>
         </div>
         
         <div id="a-form" class="calc-form">
-          <p>a, b에 대한 %를 계산합니다. (Calculates the percentage of a relative to b.)</p>
+          <p>Calculates the percentage of a relative to b.</p>
           <form oninput="calculateChange()">
             <table border="0" cellspacing="10">
               <tr>
-                <td align="right"><label for="a-value">변동 전(a) (Before Change (a)):</label></td>
+                <td align="right"><label for="a-value">Before Change (a):</label></td>
                 <td><input type="number" id="a-value" name="a-value" step="any"></td>
               </tr>
               <tr>
-                <td align="right"><label for="b-value">변동 후(b) (After Change (b)):</label></td>
+                <td align="right"><label for="b-value">After Change (b):</label></td>
                 <td><input type="number" id="b-value" name="b-value" step="any"></td>
               </tr>
             </table>
-            <p>변동률 (Rate of Change):&nbsp;&nbsp;&nbsp;<strong id="result">-</strong></p>
+            <p>Rate of Change:&nbsp;&nbsp;&nbsp;<strong id="result">-</strong></p>
           </form>
         </div>
 
         <div id="d-form" class="calc-form">
-          <p>a의 %에 대한 결과를 계산합니다. (Calculates the result based on the percentage of a.)</p>
+          <p>Calculates the result based on the percentage of a.</p>
           <form oninput="calculatePercentageChange()">
             <table border="0" cellspacing="10">
               <tr>
-                <td align="right"><label for="a-value2">기본 값(a) (Base Value (a)):</label></td>
+                <td align="right"><label for="a-value2">Base Value (a):</label></td>
                 <td><input type="number" id="a-value2" name="a-value2" step="any"></td>
               </tr>
               <tr>
-                <td align="right"><label for="percent-value">변동률(%) (Rate of Change (%)):</label></td>
+                <td align="right"><label for="percent-value">Rate of Change (%):</label></td>
                 <td><input type="number" id="percent-value" name="percent-value" step="any"></td>
               </tr>
             </table>
-            <p>결과 값 (Result Value):&nbsp;&nbsp;&nbsp;<strong id="result2">-</strong></p>
+            <p>Result Value:&nbsp;&nbsp;&nbsp;<strong id="result2">-</strong></p>
           </form>
         </div>
 
 
         <div id="e-form" class="calc-form">
-          <p>기초대사량(BMR)을 계산합니다. (Calculates Basal Metabolic Rate (BMR))</p>
+          <p>Calculates Basal Metabolic Rate (BMR)</p>
           <form oninput="calculateBMR()">
             <table border="0" cellspacing="10">
               <tr>
-                <td align="right"><label>성별 (Gender):</label></td>
+                <td align="right"><label>Gender:</label></td>
                 <td>
                   <input type="radio" id="bmr-male" name="bmr-gender" value="male" checked>
-                  <label for="bmr-male">남성 (Male)</label>&nbsp;&nbsp;&nbsp;
+                  <label for="bmr-male">Male</label>&nbsp;&nbsp;&nbsp;
                   <input type="radio" id="bmr-female" name="bmr-gender" value="female">
-                  <label for="bmr-female">여성 (Female)</label>
+                  <label for="bmr-female">Female</label>
                 </td>
               </tr>
               <tr>
-                <td align="right"><label for="bmr-age">나이 (Age):</label></td>
+                <td align="right"><label for="bmr-age">Age:</label></td>
                 <td><input type="number" id="bmr-age" step="1"></td>
               </tr>
               <tr>
-                <td align="right"><label for="bmr-height">키(cm) (Height (cm)):</label></td>
+                <td align="right"><label for="bmr-height">Height (cm):</label></td>
                 <td><input type="number" id="bmr-height" step="any"></td>
               </tr>
               <tr>
-                <td align="right"><label for="bmr-weight">몸무게(kg) (Weight (kg)):</label></td>
+                <td align="right"><label for="bmr-weight">Weight (kg):</label></td>
                 <td><input type="number" id="bmr-weight" step="any"></td>
               </tr>
             </table>
@@ -391,11 +391,11 @@
         </div>
 
         <div id="g-form" class="calc-form">
-          <p>D-Day를 계산합니다. (Calculates D-Day)</p>
+          <p>Calculates D-Day</p>
           <form oninput="calculateDday()">
             <table border="0" cellspacing="10">
               <tr>
-                <td align="right"><label for="target-date">목표 날짜 (Target Date):</label></td>
+                <td align="right"><label for="target-date">Target Date:</label></td>
                 <td><input type="date" id="target-date" name="target-date"></td>
               </tr>
             </table>
@@ -404,15 +404,15 @@
         </div>
         
         <div id="b-form" class="calc-form">
-          <p>체질량지수(BMI)을 계산합니다. (Calculates Body Mass Index (BMI))</p>
+          <p>Calculates Body Mass Index (BMI)</p>
           <form oninput="calculateBMI()">
             <table border="0" cellspacing="10">
               <tr>
-                <td align="right"><label for="height">키(cm) (Height (cm)):</label></td>
+                <td align="right"><label for="height">Height (cm):</label></td>
                 <td><input type="number" id="height" name="height" step="any"></td>
               </tr>
               <tr>
-                <td align="right"><label for="weight">몸무게(kg) (Weight (kg)):</label></td>
+                <td align="right"><label for="weight">Weight (kg):</label></td>
                 <td><input type="number" id="weight" name="weight" step="any"></td>
               </tr>
             </table>
@@ -422,54 +422,54 @@
 
         <div id="c-form" class="calc-form">
           <form oninput="calculateSimpleInterest()">
-            <p>단리 이자를 계산합니다. (Calculates Simple Interest)</p>
+            <p>Calculates Simple Interest</p>
             <table border="0" cellspacing="10">
               <tr>
-                <td align="right"><label for="principal">원금 (Principal):</label></td>
+                <td align="right"><label for="principal">Principal:</label></td>
                 <td><input type="number" id="principal" name="principal" step="any"></td>
               </tr>
               <tr>
-                <td align="right"><label for="rate">이자율(%) (Interest Rate (%)):</label></td>
+                <td align="right"><label for="rate">Interest Rate (%):</label></td>
                 <td><input type="number" id="rate" name="rate" step="any"></td>
               </tr>
               <tr>
-                <td align="right"><label for="time">기간(년) (Period (Years)):</label></td>
+                <td align="right"><label for="time">Period (Years):</label></td>
                 <td><input type="number" id="time" name="time" step="any"></td>
               </tr>
             </table>
-            <p>이자액 (Interest Amount):&nbsp;&nbsp;&nbsp;<strong id="interest-result">-</strong></p>
-            <p>총액 (Total Amount):&nbsp;&nbsp;&nbsp;<strong id="total-result">-</strong></p>
+            <p>Interest Amount:&nbsp;&nbsp;&nbsp;<strong id="interest-result">-</strong></p>
+            <p>Total Amount:&nbsp;&nbsp;&nbsp;<strong id="total-result">-</strong></p>
           </form>
           <div id="simple-table-wrapper"></div>
         </div>
 
         <div id="f-form" class="calc-form">
           <form oninput="calculateCompoundInterest()">
-            <p>복리 이자를 계산합니다. (Calculates Compound Interest)</p>
+            <p>Calculates Compound Interest</p>
             <table border="0" cellspacing="10">
               <tr>
-                <td align="right"><label for="c-principal">원금 (Principal):</label></td>
+                <td align="right"><label for="c-principal">Principal:</label></td>
                 <td><input type="number" id="c-principal" step="any"></td>
               </tr>
               <tr>
-                <td align="right"><label for="c-rate">이자율(%) (Interest Rate (%)):</label></td>
+                <td align="right"><label for="c-rate">Interest Rate (%):</label></td>
                 <td><input type="number" id="c-rate" step="any"></td>
               </tr>
               <tr>
-                <td align="right">기간 단위 (Time Period Unit):</td>
+                <td align="right">Time Period Unit:</td>
                 <td>
-                  <label><input type="radio" name="c-period-type" value="day" checked> 일 (Days)</label>
-                  <label><input type="radio" name="c-period-type" value="month"> 개월 (Months)</label>
+                  <label><input type="radio" name="c-period-type" value="day" checked> Days</label>
+                  <label><input type="radio" name="c-period-type" value="month"> Months</label>
                 </td>
               </tr>
               <tr>
-                <td align="right"><label for="c-time">기간 (Period):</label></td>
+                <td align="right"><label for="c-time">Period:</label></td>
                 <td><input type="number" id="c-time" step="any"></td>
               </tr>
             </table>
         
-            <p>총 이자 (Total Interest):&nbsp;&nbsp;&nbsp;<strong id="c-interest-result">-</strong></p>
-            <p>총액 (Total Amount):&nbsp;&nbsp;&nbsp;<strong id="c-total-result">-</strong></p>
+            <p>Total Interest:&nbsp;&nbsp;&nbsp;<strong id="c-interest-result">-</strong></p>
+            <p>otal Amount:&nbsp;&nbsp;&nbsp;<strong id="c-total-result">-</strong></p>
           </form>
         
           <div id="c-table-wrapper" style="margin-top: 20px;"></div>
