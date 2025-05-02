@@ -541,7 +541,7 @@
       const m = Math.floor(totalSeconds / 60);
       const s = totalSeconds % 60;
   
-      document.getElementById("sumResult").textContent = `${h}시간(Hour) ${m}분(Minute) ${s}초(Second)`;
+      document.getElementById("sumResult").textContent = `${h}시간 ${m}분 ${s}초`;
     }
   
     function diffTime() {
@@ -563,7 +563,7 @@
       const hours = Math.floor(diff / 60);
       const minutes = diff % 60;
   
-      document.getElementById("diffResult").textContent = `${hours}시간(Hour) ${minutes}분(Minute)`;
+      document.getElementById("diffResult").textContent = `${hours}시간 ${minutes}분`;
     }
 
     
@@ -611,11 +611,11 @@
       // 비교 결과 표시
       if (unitPriceA !== null && unitPriceB !== null) {
         if (unitPriceA < unitPriceB) {
-          betterDeal.textContent = "✅ 상품 A가 더 저렴합니다.(Product A is cheaper.)";
+          betterDeal.textContent = "✅ 상품 A가 더 저렴합니다.";
         } else if (unitPriceA > unitPriceB) {
-          betterDeal.textContent = "✅ 상품 B가 더 저렴합니다.(Product B is cheaper.)";
+          betterDeal.textContent = "✅ 상품 B가 더 저렴합니다.";
         } else {
-          betterDeal.textContent = "⚖️ 두 상품의 단가가 동일합니다.(The unit prices of both products are the same.)";
+          betterDeal.textContent = "⚖️ 두 상품의 단가가 동일합니다.";
         }
       } else {
         betterDeal.textContent = "";
@@ -726,7 +726,7 @@
           const interest = principal * r * i;
           const total = principal + interest;
           results.push({
-            year: `${i}년(Year)`,
+            year: `${i}년`,
             interest,
             total
           });
@@ -742,9 +742,9 @@
           <table style="width:100%;border-collapse:collapse;margin-top:20px;">
             <thead>
               <tr>
-                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">기간(Duration)</th>
-                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">누적 이자(Accumulated Interest)</th>
-                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">총금액(Total Amount)</th>
+                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">기간/th>
+                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">누적 이자</th>
+                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">총금액</th>
               </tr>
             </thead>
             <tbody>`;
@@ -797,7 +797,7 @@
           const cumulativeRate = (total - principal) / principal; // 누적 수익률
 
           results.push({
-            periodLabel: `${i}${periodType === 'day' ? '일(Day)' : '개월(Month)'}`,
+            periodLabel: `${i}${periodType === 'day' ? '일' : '개월'}`,
             profit, total, cumulativeRate
           });
         }
@@ -811,10 +811,10 @@
           <table style="width:100%;border-collapse:collapse;margin-top:20px;">
             <thead>
               <tr>
-                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">기간(Duration)</th>
-                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">단기 수익(Short-Term Profit)</th>
-                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">총금액(Total Amount)</th>
-                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">누적 수익률(Cumulative Return)</th>
+                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">기간</th>
+                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">단기 수익</th>
+                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">총금액</th>
+                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">누적 수익률</th>
               </tr>
             </thead>
             <tbody>`;
@@ -841,7 +841,327 @@
       }
     }
    
+
+
+
+
+
+
+
+    function sumTime2() {
+      const h1 = +document.getElementById("h12").value || 0;
+      const m1 = +document.getElementById("m12").value || 0;
+      const s1 = +document.getElementById("s12").value || 0;
+      const h2 = +document.getElementById("h22").value || 0;
+      const m2 = +document.getElementById("m22").value || 0;
+      const s2 = +document.getElementById("s22").value || 0;
+  
+      let totalSeconds = (h1 + h2) * 3600 + (m1 + m2) * 60 + (s1 + s2);
+  
+      const h = Math.floor(totalSeconds / 3600);
+      totalSeconds %= 3600;
+      const m = Math.floor(totalSeconds / 60);
+      const s = totalSeconds % 60;
+  
+      document.getElementById("sumResult2").textContent = `${h}Hour ${m}Minute ${s}Second`;
+    }
+  
+    function diffTime2() {
+      const start = document.getElementById("startTime2").value;
+      const end = document.getElementById("endTime2").value;
+  
+      if (!start || !end) {
+        document.getElementById("diffResult2").textContent = "-";
+        return;
+      }
+  
+      const [h1, m1] = start.split(":").map(Number);
+      const [h2, m2] = end.split(":").map(Number);
+  
+      let diff = (h2 * 60 + m2) - (h1 * 60 + m1);
+  
+      if (diff < 0) diff += 24 * 60; // 다음날 처리
+  
+      const hours = Math.floor(diff / 60);
+      const minutes = diff % 60;
+  
+      document.getElementById("diffResult2").textContent = `${hours}Hour ${minutes}Minute`;
+    }
+
     
+    
+    function countTextStats2() {
+      const text = document.getElementById("textInput2").value;
+  
+      const charCount = text.length;
+      const charNoSpaceCount = text.replace(/\s/g, '').length;
+      const wordCount = text.trim().length > 0 ? text.trim().split(/\s+/).length : 0;
+      const lineCount = text === "" ? 0 : text.split(/\r\n|\r|\n/).length;
+  
+      document.getElementById("charCount2").textContent = charCount;
+      document.getElementById("charNoSpaceCount2").textContent = charNoSpaceCount;
+      document.getElementById("wordCount2").textContent = wordCount;
+      document.getElementById("lineCount2").textContent = lineCount;
+    }
+    
+    function calculateUnitPrice2() {
+      const priceA = parseFloat(document.getElementById("priceA2").value);
+      const amountA = parseFloat(document.getElementById("amountA2").value);
+      const priceB = parseFloat(document.getElementById("priceB2").value);
+      const amountB = parseFloat(document.getElementById("amountB2").value);
+  
+      const resultA = document.getElementById("unitPriceA2");
+      const resultB = document.getElementById("unitPriceB2");
+      const betterDeal = document.getElementById("betterDeal2");
+  
+      let unitPriceA = null, unitPriceB = null;
+  
+      if (!isNaN(priceA) && !isNaN(amountA) && amountA > 0) {
+        unitPriceA = priceA / amountA;
+        resultA.innerHTML = formatWithColoredDecimal(unitPriceA);
+      } else {
+        resultA.textContent = "-";
+      }
+    
+      if (!isNaN(priceB) && !isNaN(amountB) && amountB > 0) {
+        unitPriceB = priceB / amountB;
+        resultB.innerHTML = formatWithColoredDecimal(unitPriceB);
+      } else {
+        resultB.textContent = "-";
+      }
+  
+      // 비교 결과 표시
+      if (unitPriceA !== null && unitPriceB !== null) {
+        if (unitPriceA < unitPriceB) {
+          betterDeal.textContent = "✅ Product A is cheaper.";
+        } else if (unitPriceA > unitPriceB) {
+          betterDeal.textContent = "✅ Product B is cheaper.";
+        } else {
+          betterDeal.textContent = "⚖️ The unit prices of both products are the same.";
+        }
+      } else {
+        betterDeal.textContent = "";
+      }
+    }
+
+    function calculateChange2() {
+      const a = parseFloat(document.getElementById("a-value2").value);
+      const b = parseFloat(document.getElementById("b-value2").value);
+      const result = document.getElementById("result2");
+  
+      if (!isNaN(a) && !isNaN(b) && a !== 0) {
+        const change = ((b - a) / a) * 100;
+        const sign = change >= 0 ? "+" : "";
+        result.innerHTML = `${sign}${formatWithColoredDecimal(change)}%`;
+      } else {
+        result.textContent = "-";
+      }
+    }
+
+    function calculatePercentageChange2() {
+      const a = parseFloat(document.getElementById("a-value22").value);
+      const percent = parseFloat(document.getElementById("percent-value2").value);
+      const result = document.getElementById("result22");
+    
+      if (!isNaN(a) && !isNaN(percent)) {
+        const b = a * (1 + percent / 100);
+        result.innerHTML = formatWithColoredDecimal(b);
+      } else {
+        result.textContent = "-";
+      }
+    }
+
+    function calculateBMR2() {
+      // 선택된 라디오 버튼 값 가져오기
+      const gender = document.querySelector('input[name="bmr-gender2"]:checked').value;
+      const age = parseFloat(document.getElementById("bmr-age2").value);
+      const height = parseFloat(document.getElementById("bmr-height2").value);
+      const weight = parseFloat(document.getElementById("bmr-weight2").value);
+      const result = document.getElementById("bmr-result2");
+    
+      if (!isNaN(age) && !isNaN(height) && !isNaN(weight)) {
+        let bmr;
+        if (gender === "male") {
+          bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+        } else {
+          bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+        }
+        result.innerHTML = formatWithColoredDecimal(bmr);
+      } else {
+        result.textContent = "-";
+      }
+    }
+
+    function calculateDday2() {
+      const inputDate = document.getElementById("target-date2").value;
+      const result = document.getElementById("dday-result2");
+  
+      if (inputDate) {
+        const today = new Date();
+        const target = new Date(inputDate);
+        today.setHours(0, 0, 0, 0);
+        target.setHours(0, 0, 0, 0);
+  
+        const diff = Math.ceil((target - today) / (1000 * 60 * 60 * 24));
+  
+        if (diff > 0) {
+          result.textContent = `D-${diff}`;
+        } else if (diff === 0) {
+          result.textContent = "D-Day!";
+        } else {
+          result.textContent = `D+${Math.abs(diff)}`;
+        }
+      } else {
+        result.textContent = "-";
+      }
+    }
+    
+    function calculateBMI2() {
+      const weight = parseFloat(document.getElementById("weight2").value);
+      const height = parseFloat(document.getElementById("height2").value);
+      const result = document.getElementById("bmi-result2");
+  
+      if (!isNaN(weight) && !isNaN(height) && height > 0) {
+        const heightInMeters = height / 100;
+        const bmi = weight / (heightInMeters * heightInMeters);
+        result.innerHTML = formatWithColoredDecimal(bmi);
+      } else {
+        result.textContent = "-";
+      }
+    }
+
+    function calculateSimpleInterest2() {
+      const principal = parseFloat(document.getElementById("principal2").value);
+      const rate = parseFloat(document.getElementById("rate2").value);
+      const time = parseFloat(document.getElementById("time2").value);
+    
+      const interestResult = document.getElementById("interest-result2");
+      const totalResult = document.getElementById("total-result2");
+      const tableWrapper = document.getElementById("simple-table-wrapper2");
+    
+      if (!isNaN(principal) && !isNaN(rate) && !isNaN(time)) {
+        const r = rate / 100;
+        const years = Math.floor(time);
+        let results = [];
+    
+        for (let i = 1; i <= years; i++) {
+          const interest = principal * r * i;
+          const total = principal + interest;
+          results.push({
+            year: `${i}Year`,
+            interest,
+            total
+          });
+        }
+    
+        const finalInterest = principal * r * time;
+        const finalTotal = principal + finalInterest;
+    
+        interestResult.innerHTML = formatWithColoredDecimal(finalInterest2);
+        totalResult.innerHTML = formatWithColoredDecimal(finalTotal2);
+    
+        let html = `
+          <table style="width:100%;border-collapse:collapse;margin-top:20px;">
+            <thead>
+              <tr>
+                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">Duration</th>
+                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">Accumulated Interest</th>
+                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">Total Amount</th>
+              </tr>
+            </thead>
+            <tbody>`;
+    
+        results.forEach(item => {
+          html += `
+            <tr>
+              <td style="border:1px solid #888;text-align:right;padding:8px;">${item.year}</td>
+              <td style="border:1px solid #888;text-align:right;padding:8px;">${formatWithColoredDecimal(item.interest)}</td>
+              <td style="border:1px solid #888;text-align:right;padding:8px;">${formatWithColoredDecimal(item.total)}</td>
+            </tr>`;
+        });
+    
+        html += `
+            </tbody>
+          </table>`;
+    
+        tableWrapper.innerHTML = html;
+      } else {
+        interestResult.textContent = "-";
+        totalResult.textContent = "-";
+        tableWrapper.innerHTML = "";
+      }
+    }
+
+
+
+    
+
+    function calculateCompoundInterest2() {
+      const principal = parseFloat(document.getElementById("c-principal2").value);
+      const rate = parseFloat(document.getElementById("c-rate2").value);
+      const time = parseFloat(document.getElementById("c-time2").value);
+      const periodType = document.querySelector('input[name="c-period-type2"]:checked').value;
+
+      const interestResult = document.getElementById("c-interest-result2");
+      const totalResult = document.getElementById("c-total-result2");
+      const tableWrapper = document.getElementById("c-table-wrapper2");
+
+      if (!isNaN(principal) && !isNaN(rate) && !isNaN(time)) {
+        const periods = Math.floor(time);
+        const r = rate / 100;
+        let results = [];
+        let total = principal;
+
+        for (let i = 1; i <= periods; i++) {
+          const prevTotal = total;
+          total = total * (1 + r);
+          const profit = total - prevTotal;                       // 단기 수익
+          const cumulativeRate = (total - principal) / principal; // 누적 수익률
+
+          results.push({
+            periodLabel: `${i}${periodType === 'day' ? 'Day' : 'Month'}`,
+            profit, total, cumulativeRate
+          });
+        }
+
+        // 결과 표시
+        interestResult.innerHTML = formatWithColoredDecimal(total - principal);
+        totalResult.innerHTML    = formatWithColoredDecimal(total);
+
+        // 테이블 생성 (모두 인라인 스타일)
+        let html = `
+          <table style="width:100%;border-collapse:collapse;margin-top:20px;">
+            <thead>
+              <tr>
+                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">Duration</th>
+                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">Short-Term Profit</th>
+                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">Total Amount</th>
+                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">Cumulative Return</th>
+              </tr>
+            </thead>
+            <tbody>`;
+
+        results.forEach(item => {
+          html += `
+            <tr>
+              <td style="border:1px solid #888;text-align:right;padding:8px;">${item.periodLabel}</td>
+              <td style="border:1px solid #888;text-align:right;padding:8px;">${formatWithColoredDecimal(item.profit)}</td>
+              <td style="border:1px solid #888;text-align:right;padding:8px;">${formatWithColoredDecimal(item.total)}</td>
+              <td style="border:1px solid #888;text-align:right;padding:8px;">${(item.cumulativeRate*100).toFixed(2)}%</td>
+            </tr>`;
+        });
+
+        html += `
+            </tbody>
+          </table>`;
+
+        tableWrapper.innerHTML = html;
+      } else {
+        interestResult.textContent = "-";
+        totalResult.textContent = "-";
+        tableWrapper.innerHTML = "";
+      }
+    }
   </script>
 </body>
 </html>
