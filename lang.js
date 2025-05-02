@@ -14,8 +14,9 @@
   enButton.textContent = 'English';
   enButton.onclick = function() { setLanguage('en'); };
 
-  langButtonContainer.appendChild(koButton);
   langButtonContainer.appendChild(enButton);
+  langButtonContainer.appendChild(koButton);
+  
   
   document.body.appendChild(langButtonContainer);
 
