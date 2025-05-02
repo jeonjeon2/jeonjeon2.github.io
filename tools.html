@@ -113,10 +113,12 @@
         });
       } else {
         const qrcodeDiv = document.getElementById("qrcode");
-        qrcodeDiv.innerHTML = "";
-        QRCode.toCanvas(document.createElement("canvas"), value, { width: 200 }, function (err, canvas) {
+        qrcodeDiv.innerHTML = ""; // 기존 QR 제거
+      
+        const canvas = document.createElement("canvas");
+        QRCode.toCanvas(canvas, value, { width: 200 }, function (err) {
           if (err) {
-            alert("QR코드 생성 실패");
+            alert("QR코드 생성 실패: " + err);
             return;
           }
           qrcodeDiv.appendChild(canvas);
