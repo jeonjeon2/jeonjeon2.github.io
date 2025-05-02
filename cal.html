@@ -178,7 +178,7 @@
       if (!isNaN(a) && !isNaN(b) && a !== 0) {
         const change = ((b - a) / a) * 100;
         const sign = change >= 0 ? "+" : "";
-        result.textContent = `${sign}${Math.floor(change).toLocaleString();}%`;
+        result.textContent = `${sign}${Math.floor(change).toLocaleString()}%`;
       } else {
         result.textContent = "-";
       }
