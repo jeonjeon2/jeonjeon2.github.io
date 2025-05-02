@@ -18,6 +18,7 @@
           <button class="form-toggle-btn" data-target="a-form">퍼센트</button>&nbsp;&nbsp;&nbsp;
           <button class="form-toggle-btn" data-target="d-form">변동률</button>&nbsp;&nbsp;&nbsp;
           <button class="form-toggle-btn" data-target="c-form">단리</button>&nbsp;&nbsp;&nbsp;
+          <button class="form-toggle-btn" data-target="f-form">복리</button>&nbsp;&nbsp;&nbsp;
           <button class="form-toggle-btn" data-target="e-form">BMR(기초대사량)</button>&nbsp;&nbsp;&nbsp;
           <button class="form-toggle-btn" data-target="b-form">BMI(체질량지수)</button>&nbsp;&nbsp;&nbsp;
         </p>
@@ -127,6 +128,39 @@
             <p>총액:&nbsp;&nbsp;&nbsp;<strong id="total-result">-</strong></p>
         </form>
       </div>
+
+      <div id="f-form" class="calc-form">
+        <form oninput="calculateCompoundInterest()">
+          <p>복리 이자를 구합니다.</p>
+          <table border="0" cellspacing="10">
+            <tr align="right">
+              <td><label for="principal">원금:</label></td>
+              <td><input type="number" id="principal" name="principal" step="any"></td>
+            </tr>
+            <tr align="right">
+              <td><label for="rate">이자율(%):</label></td>
+              <td><input type="number" id="rate" name="rate" step="any"></td>
+            </tr>
+            <tr align="right">
+              <td><label for="time">기간(년):</label></td>
+              <td><input type="number" id="time" name="time" step="any"></td>
+            </tr>
+            <tr align="right">
+              <td><label for="compound-frequency">복리 주기:</label></td>
+              <td>
+                <select id="compound-frequency" name="compound-frequency">
+                  <option value="1">년</option>
+                  <option value="12">월</option>
+                  <option value="365">일</option>
+                </select>
+              </td>
+            </tr>
+          </table>
+          <p>이자액:&nbsp;&nbsp;&nbsp;<strong id="interest-result">-</strong></p>
+          <p>총액:&nbsp;&nbsp;&nbsp;<strong id="total-result">-</strong></p>
+        </form>
+      </div>
+
       
     </section>
   </main>
@@ -245,6 +279,30 @@
         totalResult.textContent = "-";
       }
     }
+
+    function calculateCompoundInterest() {
+      const principal = parseFloat(document.getElementById("principal").value);
+      const rate = parseFloat(document.getElementById("rate").value);
+      const time = parseFloat(document.getElementById("time").value);
+      const compoundFrequency = parseFloat(document.getElementById("compound-frequency").value);
+      
+      const interestResult = document.getElementById("interest-result");
+      const totalResult = document.getElementById("total-result");
+      
+      if (!isNaN(principal) && !isNaN(rate) && !isNaN(time)) {
+        // 복리 계산 공식
+        const interest = principal * Math.pow(1 + (rate / (100 * compoundFrequency)), compoundFrequency * time) - principal;
+        const total = principal + interest;
+        
+        interestResult.textContent = interest.toFixed(2);
+        totalResult.textContent = total.toFixed(2);
+      } else {
+        interestResult.textContent = "-";
+        totalResult.textContent = "-";
+      }
+    }
+
+    
   </script>
 </body>
 </html>
