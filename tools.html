@@ -23,7 +23,7 @@
         <label><input type="radio" name="code-type" value="qrcode" onchange="toggleMode()"> QR코드</label>
 
         <div id="barcode-options" style="margin-top: 10px;">
-          <label for="barcode-format">바코드 유형:</label>
+          <label for="barcode-format">바코드 유형:&nbsp;&nbsp;</label>
           <select id="barcode-format">
             <option value="CODE128">CODE128 auto</option>
             <option value="CODE128A">CODE128 A</option>
@@ -45,7 +45,7 @@
         </div>
 
         <p>
-          <label for="input-value" style="margin-top: 10px;">코드 값 입력:</label>
+          <label for="input-value" style="margin-top: 10px;">코드 값 입력:&nbsp;&nbsp;</label>
           <input type="text" id="input-value" placeholder="예: 123456789012" />
           &nbsp;&nbsp;
           <button onclick="generate()" style="margin-top: 10px;">생성</button>
