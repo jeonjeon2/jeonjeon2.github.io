@@ -130,7 +130,37 @@
           </form>
         </div>
 
+        <div id="f-form" class="calc-form">
+          <form oninput="calculateCompoundInterest()">
+            <p>복리 이자를 구합니다.</p>
+            <table border="0" cellspacing="10">
+              <tr>
+                <td align="right"><label for="c-principal">원금:</label></td>
+                <td><input type="number" id="c-principal" step="any"></td>
+              </tr>
+              <tr>
+                <td align="right"><label for="c-rate">이자율(%):</label></td>
+                <td><input type="number" id="c-rate" step="any"></td>
+              </tr>
+              <tr>
+                <td align="right"><label for="c-time">기간:</label></td>
+                <td><input type="number" id="c-time" step="any"></td>
+              </tr>
+              <tr>
+                <td align="right">기간 단위:</td>
+                <td>
+                  <label><input type="radio" name="c-period-type" value="day" checked> 일</label>
+                  <label><input type="radio" name="c-period-type" value="month"> 개월</label>
+                </td>
+              </tr>
+            </table>
         
+            <p>총 이자:&nbsp;&nbsp;&nbsp;<strong id="c-interest-result">-</strong></p>
+            <p>총액:&nbsp;&nbsp;&nbsp;<strong id="c-total-result">-</strong></p>
+          </form>
+        
+          <div id="c-table-wrapper" style="margin-top: 20px;"></div>
+        </div>
 
        
 
@@ -259,7 +289,47 @@
       }
     }
 
-
+    function calculateCompoundInterest() {
+      const principal = parseFloat(document.getElementById("c-principal").value);
+      const rate = parseFloat(document.getElementById("c-rate").value);
+      const time = parseFloat(document.getElementById("c-time").value);
+      const periodType = document.querySelector('input[name="c-period-type"]:checked').value;
+    
+      const interestResult = document.getElementById("c-interest-result");
+      const totalResult = document.getElementById("c-total-result");
+      const tableWrapper = document.getElementById("c-table-wrapper");
+    
+      if (!isNaN(principal) && !isNaN(rate) && !isNaN(time)) {
+        const periods = Math.floor(time);
+        const r = rate / 100;
+    
+        let results = [];
+        let total = principal;
+    
+        for (let i = 1; i <= periods; i++) {
+          total = total * (1 + r);
+          results.push({ period: i, amount: total });
+        }
+    
+        const interest = total - principal;
+        interestResult.innerHTML = formatWithColoredDecimal(interest);
+        totalResult.innerHTML = formatWithColoredDecimal(total);
+    
+        // 표 생성
+        let tableHTML = `<table border="1" cellpadding="5" style="border-collapse:collapse;">
+            <thead><tr><th>${periodType === 'day' ? '일' : '개월'}</th><th>금액</th></tr></thead><tbody>`;
+        results.forEach(r => {
+          tableHTML += `<tr><td>${r.period}</td><td>${formatWithColoredDecimal(r.amount)}</td></tr>`;
+        });
+        tableHTML += "</tbody></table>";
+        tableWrapper.innerHTML = tableHTML;
+    
+      } else {
+        interestResult.textContent = "-";
+        totalResult.textContent = "-";
+        tableWrapper.innerHTML = "";
+      }
+    }
    
     
   </script>
