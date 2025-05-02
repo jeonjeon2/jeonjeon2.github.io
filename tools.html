@@ -1,14 +1,15 @@
-<!-- tools.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <link rel="stylesheet" href="style.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tools - MyCode12</title>
-  
+
+  <!-- 바코드 JS -->
   <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <!-- 브라우저용 QR코드 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
 </head>
 <body>
   <div id="header"></div>
@@ -16,69 +17,56 @@
   <main class="tools-container">
     <section class="tool-box">
       <h2>바코드</h2>
-  
+
       <div class="code-generator">
-          <label><input type="radio" name="code-type" value="barcode" checked onchange="toggleMode()"> 바코드</label>
-          <label><input type="radio" name="code-type" value="qrcode" onchange="toggleMode()"> QR코드</label>
+        <label><input type="radio" name="code-type" value="barcode" checked onchange="toggleMode()"> 바코드</label>
+        <label><input type="radio" name="code-type" value="qrcode" onchange="toggleMode()"> QR코드</label>
 
-          <div id="barcode-options" style="margin-top: 10px;">
-            
-            
-            <label for="barcode-format">바코드 유형:</label>
-            <select id="barcode-format">
-              <option value="CODE128">CODE128 auto</option>
-              <option value="CODE128A">CODE128 A</option>
-              <option value="CODE128B">CODE128 B</option>
-              <option value="CODE128C">CODE128 C</option>
-              <option value="EAN13">EAN</option>
-              <option value="EAN8">EAN8</option>
-              <option value="UPC">UPC</option>
-              <option value="CODE39">CODE39</option>
-              <option value="ITF14">ITF14</option>
-              <option value="ITF">ITF</option>
-              <option value="MSI">MSI</option>
-              <option value="MSI10">MSI10</option>
-              <option value="MSI11">MSI11</option>
-              <option value="MSI1010">MSI1010</option>
-              <option value="MSI1110">MSI1110</option>
-              <option value="pharmacode">Pharmacode</option>
-            </select>
-
-            
-          </div>
-
-          <label for="input-value" style="margin-top: 10px;">코드 값 입력:</label>
-          <input type="text" id="input-value" placeholder="예: 123456789012" />
-          <button onclick="generate()" style="margin-top: 10px;">생성</button>
-          <button onclick="downloadBarcode()">바코드 다운로드</button>
-          <button onclick="downloadQRCode()">QR코드 다운로드</button>
-          <canvas id="barcode-canvas" style="margin-top: 20px;"></canvas>
-          <div id="qrcode" style="margin-top: 20px;"></div>
+        <div id="barcode-options" style="margin-top: 10px;">
+          <label for="barcode-format">바코드 유형:</label>
+          <select id="barcode-format">
+            <option value="CODE128">CODE128 auto</option>
+            <option value="CODE128A">CODE128 A</option>
+            <option value="CODE128B">CODE128 B</option>
+            <option value="CODE128C">CODE128 C</option>
+            <option value="EAN13">EAN</option>
+            <option value="EAN8">EAN8</option>
+            <option value="UPC">UPC</option>
+            <option value="CODE39">CODE39</option>
+            <option value="ITF14">ITF14</option>
+            <option value="ITF">ITF</option>
+            <option value="MSI">MSI</option>
+            <option value="MSI10">MSI10</option>
+            <option value="MSI11">MSI11</option>
+            <option value="MSI1010">MSI1010</option>
+            <option value="MSI1110">MSI1110</option>
+            <option value="pharmacode">Pharmacode</option>
+          </select>
         </div>
-        <!-- 생성기 UI 끝 -->
 
+        <label for="input-value" style="margin-top: 10px;">코드 값 입력:</label>
+        <input type="text" id="input-value" placeholder="예: 123456789012" />
+
+        <button onclick="generate()" style="margin-top: 10px;">생성</button>
+        <button onclick="downloadBarcode()">바코드 다운로드</button>
+        <button onclick="downloadQRCode()">QR코드 다운로드</button>
+
+        <canvas id="barcode-canvas" style="margin-top: 20px;"></canvas>
+        <div id="qrcode" style="margin-top: 20px;"></div>
       </div>
-  
     </section>
   </main>
-
 
   <div id="footer"></div>
 
   <script>
-    // Load header
+    // Header/Footer 로드
     fetch("header.html")
       .then(res => res.text())
-      .then(data => {
-        document.getElementById("header").innerHTML = data;
-      });
-
-    // Load footer
+      .then(data => { document.getElementById("header").innerHTML = data; });
     fetch("footer.html")
       .then(res => res.text())
-      .then(data => {
-        document.getElementById("footer").innerHTML = data;
-      });
+      .then(data => { document.getElementById("footer").innerHTML = data; });
 
     function toggleMode() {
       const selected = document.querySelector('input[name="code-type"]:checked').value;
@@ -103,9 +91,9 @@
         alert("코드 값을 입력하세요.");
         return;
       }
-    
+
       const selected = document.querySelector('input[name="code-type"]:checked').value;
-    
+
       if (selected === "barcode") {
         const format = document.getElementById("barcode-format").value;
         JsBarcode("#barcode-canvas", value, {
@@ -118,18 +106,14 @@
       } else {
         const qrcodeDiv = document.getElementById("qrcode");
         qrcodeDiv.innerHTML = ""; // 기존 QR 제거
-    
-        const canvas = document.createElement("canvas");
-        QRCode.toCanvas(canvas, value, { width: 200 }, function (err) {
-          if (err) {
-            alert("QR코드 생성 실패: " + err);
-            return;
-          }
-          qrcodeDiv.appendChild(canvas);
+
+        const qr = new QRCode(qrcodeDiv, {
+          text: value,
+          width: 200,
+          height: 200
         });
       }
     }
-
 
     function downloadBarcode() {
       const canvas = document.getElementById("barcode-canvas");
@@ -139,22 +123,19 @@
       link.href = canvas.toDataURL("image/png");
       link.click();
     }
-    
+
     function downloadQRCode() {
       const qrcodeDiv = document.getElementById("qrcode");
-      const canvas = qrcodeDiv.querySelector("canvas");
-      if (!canvas || qrcodeDiv.style.display === "none") return alert("QR코드가 없습니다.");
+      const img = qrcodeDiv.querySelector("img");
+      if (!img || qrcodeDiv.style.display === "none") return alert("QR코드가 없습니다.");
       const link = document.createElement("a");
       link.download = "qrcode.png";
-      link.href = canvas.toDataURL("image/png");
+      link.href = img.src;
       link.click();
     }
 
-    
-    // 초기 모드 설정
+    // 시작 시 모드 적용
     toggleMode();
-
-    
   </script>
 </body>
 </html>
