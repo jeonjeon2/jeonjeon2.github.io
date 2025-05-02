@@ -23,41 +23,53 @@
         </p>
          
         <div id="a-form" class="calc-form">
-          <p></p></ㅔ>a, b에 대한 %를 구합니다.</p>
+          <p>a, b에 대한 %를 구합니다.</p>
           <form oninput="calculateChange()">
-            <label for="a-value">변동 전(a): </label>
-            <input type="number" id="a-value" name="a-value" step="any"><br />
-            <label for="b-value">변동 후(b): </label>
-            <input type="number" id="b-value" name="b-value" step="any">
+            <table border="0" cellspacing="10">
+              <tr align="right">
+                <td><label for="a-value">변동 전(a):</label></td>
+                <td><input type="number" id="a-value" name="a-value" step="any"></td>
+              </tr>
+              <tr align="right">
+                <td><label for="b-value">변동 후(b):</label></td>
+                <td><input type="number" id="b-value" name="b-value" step="any"></td>
+              </tr>
+            </table>
             <p>변동률: <strong id="result">-</strong></p>
           </form>
         </div>
       
         <div id="b-form" class="calc-form">
-          <p></p>BMI 지수를 구합니다.</p>
+          <p>BMI 지수를 구합니다.</p>
           <form oninput="calculateBMI()">
-            <label for="height">키(cm): </label>
-            <input type="number" id="height" name="height" step="any"> <br />
-            <label for="weight">몸무게(kg): </label>
-            <input type="number" id="weight" name="weight" step="any">
+            <table border="0" cellspacing="10">
+              <tr align="right">
+                <td><label for="height">키(cm):</label></td>
+                <td><input type="number" id="height" name="height" step="any"></td>
+              </tr>
+              <tr align="right">
+                <td><label for="weight">몸무게(kg):</label></td>
+                <td><input type="number" id="weight" name="weight" step="any"></td>
+              </tr>
+            </table>
             <p>BMI: <strong id="bmi-result">-</strong></p>
           </form>
         </div>
 
         <div id="c-form" class="calc-form">
           <form oninput="calculateSimpleInterest()">
-            <p></p>연 이율 단리를 구합니다.</p>
+            <p>연 이율 단리를 구합니다.</p>
             <table border="0" cellspacing="10">
               <tr align="right">
-                <td><label for="principal">원금: </label></td>
-                <td><input type="number" id="principal" name="principal" step="any"><br /></td>
+                <td><label for="principal">원금:</label></td>
+                <td><input type="number" id="principal" name="principal" step="any"></td>
               </tr>
               <tr align="right">
-                <td><label for="rate">이자율(%): </label></td>
-                <td><input type="number" id="rate" name="rate" step="any"><br /></td>
+                <td><label for="rate">이자율(%):</label></td>
+                <td><input type="number" id="rate" name="rate" step="any"></td>
               </tr>
               <tr align="right">
-                <td><label for="time">기간(년): </label></td>
+                <td><label for="time">기간(년):</label></td>
                 <td><input type="number" id="time" name="time" step="any"></td>
               </tr>
             </table>
