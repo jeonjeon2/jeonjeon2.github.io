@@ -47,7 +47,8 @@
           <input type="text" id="input-value" placeholder="예: 123456789012" />
 
           <button onclick="generate()" style="margin-top: 10px;">생성</button>
-
+          <button onclick="downloadBarcode()">바코드 다운로드</button>
+          <button onclick="downloadQRCode()">QR코드 다운로드</button>
           <canvas id="barcode-canvas" style="margin-top: 20px;"></canvas>
           <div id="qrcode" style="margin-top: 20px;"></div>
         </div>
@@ -126,6 +127,27 @@
       }
     }
 
+
+    function downloadBarcode() {
+      const canvas = document.getElementById("barcode-canvas");
+      if (!canvas || canvas.style.display === "none") return alert("바코드가 없습니다.");
+      const link = document.createElement("a");
+      link.download = "barcode.png";
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    }
+    
+    function downloadQRCode() {
+      const qrcodeDiv = document.getElementById("qrcode");
+      const canvas = qrcodeDiv.querySelector("canvas");
+      if (!canvas || qrcodeDiv.style.display === "none") return alert("QR코드가 없습니다.");
+      const link = document.createElement("a");
+      link.download = "qrcode.png";
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    }
+
+    
     // 초기 모드 설정
     toggleMode();
 
