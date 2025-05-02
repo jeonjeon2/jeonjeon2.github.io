@@ -215,7 +215,7 @@
 
     function formatWithColoredDecimal(value) {
       const parts = value.toFixed(2).split(".");
-      return `${Number(parts[0]).toLocaleString()}.<span style="color: blue;">${parts[1]}</span>`;
+      return `${Number(parts[0]).toLocaleString()}.<span style="color: blue;">.${parts[1]}</span>`;
     }
 
     function calculateChange() {
