@@ -26,14 +26,9 @@
           <button class="form-toggle-btn" data-target="g-form">D-day</button>&nbsp;&nbsp;&nbsp;
           <button class="form-toggle-btn" data-target="h-form">단가</button>&nbsp;&nbsp;&nbsp;
           <button class="form-toggle-btn" data-target="i-form">문자</button>&nbsp;&nbsp;&nbsp;
-          <button class="form-toggle-btn" data-target="j-form">P/W강도</button>&nbsp;&nbsp;&nbsp;
         </p>
 
-        <div id="j-form" class="calc-form">
-          <p>비밀번호 강도 테스트를 진행합니다.</p>
-          <input type="password" id="passwordInput" placeholder="비밀번호 입력" oninput="checkPasswordStrength()" />
-          <p>🔐 강도: <strong id="strengthResult">-</strong></p>
-        </div>
+        
         
         <div id="i-form" class="calc-form">
           <p>단어 / 문자 수를 계산합니다.</p>
@@ -335,23 +330,6 @@
     }
 
     
-    function checkPasswordStrength() {
-      const password = document.getElementById("passwordInput").value;
-      const result = document.getElementById("strengthResult");
-  
-      let score = 0;
-  
-      // 조건별 점수 부여
-      if (password.length >= 8) score++;        // 8자 이상
-      if (/[a-z]/.test(password)) score++;      // 소문자 포함
-      if (/[A-Z]/.test(password)) score++;      // 대문자 포함
-      if (/\d/.test(password)) score++;         // 숫자 포함
-      if (/[\W_]/.test(password)) score++;      // 특수문자 포함
-  
-      // 결과 출력
-      const levels = ["❌ 너무 약함", "⚠️ 약함", "🟡 보통", "🟢 강함", "🟢 매우 강함", "✅ 최고 강도!"];
-      result.textContent = levels[score];
-    }
     
     function countTextStats() {
       const text = document.getElementById("textInput").value;
