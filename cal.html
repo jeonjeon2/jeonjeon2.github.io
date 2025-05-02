@@ -295,6 +295,13 @@
       return `${intPart}<span class="decimal">.${parts[1]}</span>`;
     }
 
+    // 소수점 아래 2자리까지 고정하고, 소수점 부분만 파란색 span으로 인라인 스타일 적용
+    function formatWithColoredDecimal(value) {
+      const parts = value.toFixed(2).split(".");
+      const intPart = Number(parts[0]).toLocaleString();
+      return `${intPart}<span style="color:blue">.${parts[1]}</span>`;
+    }
+
     function calculateCompoundInterest() {
       const principal = parseFloat(document.getElementById("c-principal").value);
       const rate = parseFloat(document.getElementById("c-rate").value);
@@ -308,57 +315,53 @@
       if (!isNaN(principal) && !isNaN(rate) && !isNaN(time)) {
         const periods = Math.floor(time);
         const r = rate / 100;
-
         let results = [];
         let total = principal;
 
         for (let i = 1; i <= periods; i++) {
           const prevTotal = total;
           total = total * (1 + r);
-          const profit = total - prevTotal;                     // 단기 수익
+          const profit = total - prevTotal;                       // 단기 수익
           const cumulativeRate = (total - principal) / principal; // 누적 수익률
 
           results.push({
             periodLabel: `${i}${periodType === 'day' ? '일' : '개월'}`,
-            profit,
-            total,
-            cumulativeRate
+            profit, total, cumulativeRate
           });
         }
 
-        // 최종 총 이자·총액 표시
-        const totalInterest = total - principal;
-        interestResult.innerHTML = formatWithColoredDecimal(totalInterest);
-        totalResult.innerHTML = formatWithColoredDecimal(total);
+        // 결과 표시
+        interestResult.innerHTML = formatWithColoredDecimal(total - principal);
+        totalResult.innerHTML    = formatWithColoredDecimal(total);
 
-        // 결과 테이블 생성
-        let tableHTML = `
-          <table>
+        // 테이블 생성 (모두 인라인 스타일)
+        let html = `
+          <table style="width:100%;border-collapse:collapse;margin-top:20px;">
             <thead>
               <tr>
-                <th>기간</th>
-                <th>단기 수익</th>
-                <th>총금액</th>
-                <th>누적 수익률</th>
+                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">기간</th>
+                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">단기 수익</th>
+                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">총금액</th>
+                <th style="border:1px solid #888;text-align:right;padding:8px;background:#f5f5f5;">누적 수익률</th>
               </tr>
             </thead>
             <tbody>`;
 
         results.forEach(item => {
-          tableHTML += `
+          html += `
             <tr>
-              <td>${item.periodLabel}</td>
-              <td>${formatWithColoredDecimal(item.profit)}</td>
-              <td>${formatWithColoredDecimal(item.total)}</td>
-              <td>${(item.cumulativeRate * 100).toFixed(2)}%</td>
+              <td style="border:1px solid #888;text-align:right;padding:8px;">${item.periodLabel}</td>
+              <td style="border:1px solid #888;text-align:right;padding:8px;">${formatWithColoredDecimal(item.profit)}</td>
+              <td style="border:1px solid #888;text-align:right;padding:8px;">${formatWithColoredDecimal(item.total)}</td>
+              <td style="border:1px solid #888;text-align:right;padding:8px;">${(item.cumulativeRate*100).toFixed(2)}%</td>
             </tr>`;
         });
 
-        tableHTML += `
+        html += `
             </tbody>
           </table>`;
 
-        tableWrapper.innerHTML = tableHTML;
+        tableWrapper.innerHTML = html;
       } else {
         interestResult.textContent = "-";
         totalResult.textContent = "-";
