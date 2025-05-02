@@ -307,21 +307,50 @@
         let total = principal;
     
         for (let i = 1; i <= periods; i++) {
+          const prevTotal = total;
           total = total * (1 + r);
-          results.push({ period: i, amount: total });
+    
+          const profit = total - prevTotal;
+          const profitRate = profit / prevTotal;  // 소수 형태
+    
+          results.push({
+            periodLabel: `${i}${periodType === 'day' ? '일' : '개월'}`,
+            profit,
+            total,
+            profitRate
+          });
         }
     
-        const interest = total - principal;
-        interestResult.innerHTML = formatWithColoredDecimal(interest);
+        const totalInterest = total - principal;
+        interestResult.innerHTML = formatWithColoredDecimal(totalInterest);
         totalResult.innerHTML = formatWithColoredDecimal(total);
     
         // 표 생성
-        let tableHTML = `<table border="1" cellpadding="5" style="border-collapse:collapse;">
-            <thead><tr><th>${periodType === 'day' ? '일' : '개월'}</th><th>금액</th></tr></thead><tbody>`;
-        results.forEach(r => {
-          tableHTML += `<tr><td>${r.period}</td><td>${formatWithColoredDecimal(r.amount)}</td></tr>`;
+        let tableHTML = `
+          <table border="1" cellpadding="5" style="border-collapse:collapse;">
+            <thead>
+              <tr>
+                <th>기간</th>
+                <th>수익</th>
+                <th>총금액</th>
+                <th>수익률</th>
+              </tr>
+            </thead>
+            <tbody>`;
+    
+        results.forEach(item => {
+          tableHTML += `
+            <tr>
+              <td>${item.periodLabel}</td>
+              <td>${formatWithColoredDecimal(item.profit)}</td>
+              <td>${formatWithColoredDecimal(item.total)}</td>
+              <td>${(item.profitRate * 100).toFixed(2)}%</td>
+            </tr>`;
         });
-        tableHTML += "</tbody></table>";
+    
+        tableHTML += `
+            </tbody>
+          </table>`;
         tableWrapper.innerHTML = tableHTML;
     
       } else {
