@@ -48,8 +48,15 @@
         <input type="text" id="input-value" placeholder="예: 123456789012" />
 
         <button onclick="generate()" style="margin-top: 10px;">생성</button>
-        <button onclick="downloadBarcode()">바코드 다운로드</button>
-        <button onclick="downloadQRCode()">QR코드 다운로드</button>
+        <p>
+          <!-- 다운로드 버튼들 -->
+          <div id="barcode-download" style="margin-top: 10px;">
+            <button onclick="downloadBarcode()">바코드 다운로드</button>
+          </div>
+          <div id="qrcode-download" style="margin-top: 10px; display: none;">
+            <button onclick="downloadQRCode()">QR코드 다운로드</button>
+          </div>
+        </p>
 
         <canvas id="barcode-canvas" style="margin-top: 20px;"></canvas>
         <div id="qrcode" style="margin-top: 20px;"></div>
@@ -78,10 +85,14 @@
         barcodeOptions.style.display = "block";
         canvas.style.display = "block";
         qrcode.style.display = "none";
+        barcodeDownload.style.display = "block";
+        qrcodeDownload.style.display = "none";
       } else {
         barcodeOptions.style.display = "none";
         canvas.style.display = "none";
         qrcode.style.display = "block";
+        barcodeDownload.style.display = "none";
+        qrcodeDownload.style.display = "block";
       }
     }
 
