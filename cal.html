@@ -289,28 +289,35 @@
       }
     }
 
+    function formatWithColoredDecimal(value) {
+      const parts = value.toFixed(2).split(".");
+      const intPart = Number(parts[0]).toLocaleString();
+      return `${intPart}<span class="decimal">.${parts[1]}</span>`;
+    }
+
     function calculateCompoundInterest() {
       const principal = parseFloat(document.getElementById("c-principal").value);
       const rate = parseFloat(document.getElementById("c-rate").value);
       const time = parseFloat(document.getElementById("c-time").value);
       const periodType = document.querySelector('input[name="c-period-type"]:checked').value;
-    
+
       const interestResult = document.getElementById("c-interest-result");
       const totalResult = document.getElementById("c-total-result");
       const tableWrapper = document.getElementById("c-table-wrapper");
-    
+
       if (!isNaN(principal) && !isNaN(rate) && !isNaN(time)) {
         const periods = Math.floor(time);
         const r = rate / 100;
-    
+
         let results = [];
         let total = principal;
-    
+
         for (let i = 1; i <= periods; i++) {
+          const prevTotal = total;
           total = total * (1 + r);
-          const profit = total - principal;
-          const cumulativeRate = profit / principal;  // 누적 수익률
-    
+          const profit = total - prevTotal;                     // 단기 수익
+          const cumulativeRate = (total - principal) / principal; // 누적 수익률
+
           results.push({
             periodLabel: `${i}${periodType === 'day' ? '일' : '개월'}`,
             profit,
@@ -318,24 +325,25 @@
             cumulativeRate
           });
         }
-    
+
+        // 최종 총 이자·총액 표시
         const totalInterest = total - principal;
         interestResult.innerHTML = formatWithColoredDecimal(totalInterest);
         totalResult.innerHTML = formatWithColoredDecimal(total);
-    
-        // 표 생성
+
+        // 결과 테이블 생성
         let tableHTML = `
-          <table border="1" cellpadding="5" style="border-collapse:collapse;">
+          <table>
             <thead>
               <tr>
                 <th>기간</th>
-                <th>수익</th>
+                <th>단기 수익</th>
                 <th>총금액</th>
                 <th>누적 수익률</th>
               </tr>
             </thead>
             <tbody>`;
-    
+
         results.forEach(item => {
           tableHTML += `
             <tr>
@@ -345,12 +353,12 @@
               <td>${(item.cumulativeRate * 100).toFixed(2)}%</td>
             </tr>`;
         });
-    
+
         tableHTML += `
             </tbody>
           </table>`;
+
         tableWrapper.innerHTML = tableHTML;
-    
       } else {
         interestResult.textContent = "-";
         totalResult.textContent = "-";
