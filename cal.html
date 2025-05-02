@@ -15,11 +15,9 @@
       
       <div class="tool-section">
         <p>
-          <button id="btn-a">퍼센트</button>
-          &nbsp;&nbsp;&nbsp;
-          <button id="btn-b">BMI</button>
-          &nbsp;&nbsp;&nbsp;
-          <button id="btn-c">단리</button>
+          <button class="form-toggle-btn" data-target="a-form">퍼센트</button>&nbsp;&nbsp;&nbsp;
+          <button class="form-toggle-btn" data-target="b-form">BMI</button>&nbsp;&nbsp;&nbsp;
+          <button class="form-toggle-btn" data-target="c-form">단리</button>
         </p>
          
         <div id="a-form" class="calc-form">
@@ -35,7 +33,7 @@
                 <td><input type="number" id="b-value" name="b-value" step="any"></td>
               </tr>
             </table>
-            <p>변동률: <strong id="result">-</strong></p>
+            <p>변동률:&nbsp;&nbsp;&nbsp;<strong id="result">-</strong></p>
           </form>
         </div>
       
@@ -52,7 +50,7 @@
                 <td><input type="number" id="weight" name="weight" step="any"></td>
               </tr>
             </table>
-            <p>BMI: <strong id="bmi-result">-</strong></p>
+            <p>BMI:&nbsp;&nbsp;&nbsp;<strong id="bmi-result">-</strong></p>
           </form>
         </div>
 
@@ -73,8 +71,8 @@
                 <td><input type="number" id="time" name="time" step="any"></td>
               </tr>
             </table>
-            <p>이자액: <strong id="interest-result">-</strong></p>
-            <p>총액: <strong id="total-result">-</strong></p>
+            <p>이자액:&nbsp;&nbsp;&nbsp;<strong id="interest-result">-</strong></p>
+            <p>총액:&nbsp;&nbsp;&nbsp;<strong id="total-result">-</strong></p>
         </form>
       </div>
       
@@ -99,25 +97,19 @@
         document.getElementById("footer").innerHTML = data;
       });
 
-    document.getElementById('btn-a').addEventListener('click', function() {
-      // a 폼을 보이고 나머지 숨기기
-      document.getElementById('a-form').style.display = 'block';
-      document.getElementById('b-form').style.display = 'none';
-      document.getElementById('c-form').style.display = 'none';
-    });
+    document.querySelectorAll('.form-toggle-btn').forEach(button => {
+      button.addEventListener('click', function () {
+        const targetId = this.getAttribute('data-target');
     
-    document.getElementById('btn-b').addEventListener('click', function() {
-      // b 폼을 보이고 나머지 숨기기
-      document.getElementById('a-form').style.display = 'none';
-      document.getElementById('b-form').style.display = 'block';
-      document.getElementById('c-form').style.display = 'none';
-    });
-
-    document.getElementById('btn-c').addEventListener('click', function() {
-      // c 폼을 보이고 나머지 숨기기
-      document.getElementById('a-form').style.display = 'none';
-      document.getElementById('b-form').style.display = 'none';
-      document.getElementById('c-form').style.display = 'block';
+        // 모든 폼 숨김
+        document.querySelectorAll('.calc-form').forEach(form => {
+          form.style.display = 'none';
+        });
+    
+        // 선택된 폼만 보이기
+        const targetForm = document.getElementById(targetId);
+        if (targetForm) targetForm.style.display = 'block';
+      });
     });
 
 
