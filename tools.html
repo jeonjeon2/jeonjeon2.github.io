@@ -22,9 +22,7 @@
           <label><input type="radio" name="code-type" value="qrcode" onchange="toggleMode()"> QR코드</label>
 
           <div id="barcode-options" style="margin-top: 10px;">
-            <label for="input-value" style="margin-top: 10px;">코드 값 입력:</label>
-            <input type="text" id="input-value" placeholder="예: 123456789012" />
-            <button onclick="generate()" style="margin-top: 10px;">생성</button>
+            
             
             <label for="barcode-format">바코드 유형:</label>
             <select id="barcode-format">
@@ -45,6 +43,10 @@
               <option value="MSI1110">MSI1110</option>
               <option value="pharmacode">Pharmacode</option>
             </select>
+
+            <label for="input-value" style="margin-top: 10px;">코드 값 입력:</label>
+            <input type="text" id="input-value" placeholder="예: 123456789012" />
+            <button onclick="generate()" style="margin-top: 10px;">생성</button>
           </div>
 
           
