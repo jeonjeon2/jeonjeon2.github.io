@@ -24,8 +24,18 @@
           <button class="form-toggle-btn" data-target="b-form">BMI(체질량지수)</button>&nbsp;&nbsp;&nbsp;
           <button class="form-toggle-btn" data-target="g-form">D-day</button>&nbsp;&nbsp;&nbsp;
           <button class="form-toggle-btn" data-target="h-form">단가</button>&nbsp;&nbsp;&nbsp;
+          <button class="form-toggle-btn" data-target="i-form">문자</button>&nbsp;&nbsp;&nbsp;
         </p>
 
+        <div id="i-form" class="calc-form">
+          <p>단어 / 문자 수 계산기</p>
+          <textarea id="textInput" rows="8" cols="60" oninput="countTextStats()" placeholder="여기에 텍스트를 입력하세요..."></textarea>
+          <p>🔤 총 문자 수 (공백 포함): <strong id="charCount">0</strong></p>
+          <p>🆎 총 문자 수 (공백 제외): <strong id="charNoSpaceCount">0</strong></p>
+          <p>📝 총 단어 수: <strong id="wordCount">0</strong></p>
+          <p>📄 총 줄 수: <strong id="lineCount">0</strong></p>
+        </div>
+        
         <div id="h-form" class="calc-form">
           <p>단가 계산기 (대용량 상품 비교)</p>
           <form oninput="calculateUnitPrice()">
@@ -258,7 +268,20 @@
       return `${intPart}<span style="color:blue">.${parts[1]}</span>`;
     }
 
-
+    function countTextStats() {
+      const text = document.getElementById("textInput").value;
+  
+      const charCount = text.length;
+      const charNoSpaceCount = text.replace(/\s/g, '').length;
+      const wordCount = text.trim().length > 0 ? text.trim().split(/\s+/).length : 0;
+      const lineCount = text === "" ? 0 : text.split(/\r\n|\r|\n/).length;
+  
+      document.getElementById("charCount").textContent = charCount;
+      document.getElementById("charNoSpaceCount").textContent = charNoSpaceCount;
+      document.getElementById("wordCount").textContent = wordCount;
+      document.getElementById("lineCount").textContent = lineCount;
+    }
+    
     function calculateUnitPrice() {
       const priceA = parseFloat(document.getElementById("priceA").value);
       const amountA = parseFloat(document.getElementById("amountA").value);
