@@ -213,6 +213,11 @@
     });
 
 
+    function formatWithColoredDecimal(value) {
+      const parts = value.toFixed(2).split(".");
+      return `${Number(parts[0]).toLocaleString()}.<span style="color: blue;">${parts[1]}</span>`;
+    }
+
     function calculateChange() {
       const a = parseFloat(document.getElementById("a-value").value);
       const b = parseFloat(document.getElementById("b-value").value);
@@ -221,7 +226,7 @@
       if (!isNaN(a) && !isNaN(b) && a !== 0) {
         const change = ((b - a) / a) * 100;
         const sign = change >= 0 ? "+" : "";
-        result.textContent = `${sign}${change.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%`;
+        result.textContent = `${sign}${formatWithColoredDecimal(change)}%`;
       } else {
         result.textContent = "-";
       }
@@ -234,7 +239,7 @@
     
       if (!isNaN(a) && !isNaN(percent)) {
         const b = a * (1 + percent / 100);
-        result.textContent = b.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        result.textContent = formatWithColoredDecimal(b);
       } else {
         result.textContent = "-";
       }
@@ -255,7 +260,7 @@
         } else {
           bmr = 10 * weight + 6.25 * height - 5 * age - 161;
         }
-        result.textContent = bmr.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        result.textContent = formatWithColoredDecimal(bmr);
       } else {
         result.textContent = "-";
       }
@@ -271,7 +276,7 @@
       if (!isNaN(weight) && !isNaN(height) && height > 0) {
         const heightInMeters = height / 100;
         const bmi = weight / (heightInMeters * heightInMeters);
-        result.textContent = bmi.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        result.textContent = formatWithColoredDecimal(bmi);
       } else {
         result.textContent = "-";
       }
@@ -287,8 +292,8 @@
       if (!isNaN(principal) && !isNaN(rate) && !isNaN(time)) {
         const interest = (principal * rate * time) / 100;
         const total = principal + interest;
-        interestResult.textContent = interest.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-        totalResult.textContent = total.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        interestResult.textContent = formatWithColoredDecimal(interest);
+        totalResult.textContent = formatWithColoredDecimal(total);
       } else {
         interestResult.textContent = "-";
         totalResult.textContent = "-";
@@ -306,8 +311,8 @@
         const frequency = 1;  // 연 1회 복리로 고정
         const total = principal * Math.pow((1 + rate / (100 * frequency)), frequency * time);
         const interest = total - principal;
-        interestResult.textContent = interest.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-        totalResult.textContent = total.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        interestResult.textContent = formatWithColoredDecimal(interest);
+        totalResult.textContent = formatWithColoredDecimal(total);
       } else {
         interestResult.textContent = "-";
         totalResult.textContent = "-";
@@ -325,8 +330,8 @@
         const frequency = 12;  // 월 복리: 연 12회
         const total = principal * Math.pow((1 + rate / (100 * frequency)), frequency * time);
         const interest = total - principal;
-        interestResult.textContent = interest.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-        totalResult.textContent = total.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        interestResult.textContent = formatWithColoredDecimal(interest);
+        totalResult.textContent = formatWithColoredDecimal(total);
       } else {
         interestResult.textContent = "-";
         totalResult.textContent = "-";
