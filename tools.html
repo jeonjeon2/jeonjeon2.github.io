@@ -99,9 +99,9 @@
         alert("코드 값을 입력하세요.");
         return;
       }
-
+    
       const selected = document.querySelector('input[name="code-type"]:checked').value;
-
+    
       if (selected === "barcode") {
         const format = document.getElementById("barcode-format").value;
         JsBarcode("#barcode-canvas", value, {
@@ -114,7 +114,7 @@
       } else {
         const qrcodeDiv = document.getElementById("qrcode");
         qrcodeDiv.innerHTML = ""; // 기존 QR 제거
-      
+    
         const canvas = document.createElement("canvas");
         QRCode.toCanvas(canvas, value, { width: 200 }, function (err) {
           if (err) {
