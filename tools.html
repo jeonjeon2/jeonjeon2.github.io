@@ -1,4 +1,3 @@
-<!-- tools.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +5,11 @@
   <link rel="stylesheet" href="style.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tools - MyCode12</title>
+
+  <!-- 바코드 JS -->
   <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <!-- 브라우저용 QR코드 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
 </head>
 <body>
   <div id="header"></div>
@@ -44,15 +46,10 @@
 
         <label for="input-value" style="margin-top: 10px;">코드 값 입력:</label>
         <input type="text" id="input-value" placeholder="예: 123456789012" />
-        <button onclick="generate()" style="margin-top: 10px;">생성</button>
 
-        <!-- 다운로드 버튼들 -->
-        <div id="barcode-download" style="margin-top: 10px;">
-          <button onclick="downloadBarcode()">바코드 다운로드</button>
-        </div>
-        <div id="qrcode-download" style="margin-top: 10px; display: none;">
-          <button onclick="downloadQRCode()">QR코드 다운로드</button>
-        </div>
+        <button onclick="generate()" style="margin-top: 10px;">생성</button>
+        <button onclick="downloadBarcode()">바코드 다운로드</button>
+        <button onclick="downloadQRCode()">QR코드 다운로드</button>
 
         <canvas id="barcode-canvas" style="margin-top: 20px;"></canvas>
         <div id="qrcode" style="margin-top: 20px;"></div>
@@ -63,39 +60,28 @@
   <div id="footer"></div>
 
   <script>
-    // 헤더/푸터 로딩
+    // Header/Footer 로드
     fetch("header.html")
       .then(res => res.text())
-      .then(data => {
-        document.getElementById("header").innerHTML = data;
-      });
-
+      .then(data => { document.getElementById("header").innerHTML = data; });
     fetch("footer.html")
       .then(res => res.text())
-      .then(data => {
-        document.getElementById("footer").innerHTML = data;
-      });
+      .then(data => { document.getElementById("footer").innerHTML = data; });
 
     function toggleMode() {
       const selected = document.querySelector('input[name="code-type"]:checked').value;
       const barcodeOptions = document.getElementById("barcode-options");
       const canvas = document.getElementById("barcode-canvas");
       const qrcode = document.getElementById("qrcode");
-      const barcodeDownload = document.getElementById("barcode-download");
-      const qrcodeDownload = document.getElementById("qrcode-download");
 
       if (selected === "barcode") {
         barcodeOptions.style.display = "block";
         canvas.style.display = "block";
         qrcode.style.display = "none";
-        barcodeDownload.style.display = "block";
-        qrcodeDownload.style.display = "none";
       } else {
         barcodeOptions.style.display = "none";
         canvas.style.display = "none";
         qrcode.style.display = "block";
-        barcodeDownload.style.display = "none";
-        qrcodeDownload.style.display = "block";
       }
     }
 
@@ -119,14 +105,12 @@
         });
       } else {
         const qrcodeDiv = document.getElementById("qrcode");
-        qrcodeDiv.innerHTML = "";
-        const canvas = document.createElement("canvas");
-        QRCode.toCanvas(canvas, value, { width: 200 }, function (err) {
-          if (err) {
-            alert("QR코드 생성 실패: " + err);
-            return;
-          }
-          qrcodeDiv.appendChild(canvas);
+        qrcodeDiv.innerHTML = ""; // 기존 QR 제거
+
+        const qr = new QRCode(qrcodeDiv, {
+          text: value,
+          width: 200,
+          height: 200
         });
       }
     }
@@ -142,15 +126,15 @@
 
     function downloadQRCode() {
       const qrcodeDiv = document.getElementById("qrcode");
-      const canvas = qrcodeDiv.querySelector("canvas");
-      if (!canvas || qrcodeDiv.style.display === "none") return alert("QR코드가 없습니다.");
+      const img = qrcodeDiv.querySelector("img");
+      if (!img || qrcodeDiv.style.display === "none") return alert("QR코드가 없습니다.");
       const link = document.createElement("a");
       link.download = "qrcode.png";
-      link.href = canvas.toDataURL("image/png");
+      link.href = img.src;
       link.click();
     }
 
-    // 초기 모드 설정
+    // 시작 시 모드 적용
     toggleMode();
   </script>
 </body>
