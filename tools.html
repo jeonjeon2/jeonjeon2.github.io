@@ -20,7 +20,7 @@
 
       <div class="code-generator">
         <label><input type="radio" name="code-type" value="barcode" checked onchange="toggleMode()"> Barcode</label>
-        <label><input type="radio" name="code-type" value="qrcode" onchange="toggleMode()"> QRcode</label>
+        <label><input type="radio" name="code-type" value="qrcode" onchange="toggleMode()"> QRcode</label><br /><br />
 
         <div id="barcode-options" style="margin-top: 10px;">
           <label for="barcode-format">Type:&nbsp;&nbsp;</label>
@@ -50,6 +50,7 @@
           &nbsp;&nbsp;
           <button onclick="generate()" style="margin-top: 10px;">Generator</button>
         </p>
+        <br /><br />
         <!-- 다운로드 버튼들 -->
         <div id="barcode-download" style="margin-top: 10px;">
           <button onclick="downloadBarcode()">Barcode download</button>
