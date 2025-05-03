@@ -356,14 +356,14 @@
             <table border="0" cellspacing="10">
               <tr>
                 <td align="right"><label for="a-value5">Base Value (a):</label></td>
-                <td><input type="number" id="a-value5" name="a-value5" step="any"></td>
+                <td><input type="number" id="a-value5" name="a-value6" step="any"></td>
               </tr>
               <tr>
                 <td align="right"><label for="percent-value5">Rate of Change (%):</label></td>
                 <td><input type="number" id="percent-value5" name="percent-value5" step="any"></td>
               </tr>
             </table>
-            <p>Result Value:&nbsp;&nbsp;&nbsp;<strong id="result5">-</strong></p>
+            <p>Result Value:&nbsp;&nbsp;&nbsp;<strong id="result6">-</strong></p>
           </form>
         </div>
 
@@ -947,7 +947,7 @@
     function calculateChange5() {
       const a = parseFloat(document.getElementById("a-value5").value);
       const b = parseFloat(document.getElementById("b-value5").value);
-      const result = document.getElementById("result6");
+      const result = document.getElementById("result5");
   
       if (!isNaN(a) && !isNaN(b) && a !== 0) {
         const change = ((b - a) / a) * 100;
