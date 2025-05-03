@@ -68,14 +68,9 @@
   <div id="footer"></div>
 
   <script>
-    // Header/Footer 로드
-    fetch("header.html")
-      .then(res => res.text())
-      .then(data => { document.getElementById("header").innerHTML = data; });
-    fetch("footer.html")
-      .then(res => res.text())
-      .then(data => { document.getElementById("footer").innerHTML = data; });
-
+    let isBarcodeGenerated = false; // 바코드 생성 여부 추적
+    let isQRCodeGenerated = false; // QR코드 생성 여부 추적
+  
     function toggleMode() {
       const selected = document.querySelector('input[name="code-type"]:checked').value;
       const barcodeOptions = document.getElementById("barcode-options");
@@ -83,7 +78,10 @@
       const qrcode = document.getElementById("qrcode");
       const barcodeDownload = document.getElementById("barcode-download");
       const qrcodeDownload = document.getElementById("qrcode-download");
-    
+  
+      isBarcodeGenerated = false;  // 모드 전환 시 초기화
+      isQRCodeGenerated = false;
+  
       if (selected === "barcode") {
         barcodeOptions.style.display = "block";
         canvas.style.display = "block";
@@ -98,16 +96,16 @@
         qrcodeDownload.style.display = "block";
       }
     }
-
+  
     function generate() {
       const value = document.getElementById("input-value").value.trim();
       if (!value) {
         alert("코드 값을 입력하세요. (Please enter a code value.)");
         return;
       }
-
+  
       const selected = document.querySelector('input[name="code-type"]:checked').value;
-
+  
       if (selected === "barcode") {
         const format = document.getElementById("barcode-format").value;
         JsBarcode("#barcode-canvas", value, {
@@ -117,44 +115,46 @@
           height: 100,
           displayValue: true
         });
+        isBarcodeGenerated = true; // 바코드 생성 완료 표시
       } else {
         const qrcodeDiv = document.getElementById("qrcode");
-        qrcodeDiv.innerHTML = ""; // 기존 QR 제거
-
+        qrcodeDiv.innerHTML = "";
         const qr = new QRCode(qrcodeDiv, {
           text: value,
           width: 200,
           height: 200
         });
+        isQRCodeGenerated = true; // QR코드 생성 완료 표시
       }
     }
-
+  
     function downloadBarcode() {
-      const value = document.getElementById("input-value").value.trim();
       const canvas = document.getElementById("barcode-canvas");
-    
-      if (!value || canvas.style.display === "none") {
+      if (!isBarcodeGenerated) {
         return alert("생성된 바코드가 없습니다. (No barcodes were created.)");
       }
-    
+  
       const link = document.createElement("a");
       link.download = "barcode.png";
       link.href = canvas.toDataURL("image/png");
       link.click();
     }
-
+  
     function downloadQRCode() {
       const qrcodeDiv = document.getElementById("qrcode");
       const img = qrcodeDiv.querySelector("img");
-      if (!img || qrcodeDiv.style.display === "none") return alert("생성된 QR코드가 없습니다. (There is no QR code created.)");
+      if (!isQRCodeGenerated || !img) {
+        return alert("생성된 QR코드가 없습니다. (There is no QR code created.)");
+      }
+  
       const link = document.createElement("a");
       link.download = "qrcode.png";
       link.href = img.src;
       link.click();
     }
-
-    // 시작 시 모드 적용
-    toggleMode();
+  
+    toggleMode(); // 초기 모드 설정
   </script>
+
 </body>
 </html>
