@@ -49,15 +49,16 @@
           <input type="text" id="input-value" placeholder="ex: 123456789012" />
           &nbsp;&nbsp;
           <button onclick="generate()" style="margin-top: 10px;">Generator</button>
+       
+          &nbsp;&nbsp;
+          <!-- 다운로드 버튼들 -->
+          <div id="barcode-download" style="margin-top: 10px;">
+            <button onclick="downloadBarcode()">Barcode download</button>
+          </div>
+          <div id="qrcode-download" style="margin-top: 10px; display: none;">
+            <button onclick="downloadQRCode()">QRcode download</button>
+          </div>
         </p>
-        <br /><br />
-        <!-- 다운로드 버튼들 -->
-        <div id="barcode-download" style="margin-top: 10px;">
-          <button onclick="downloadBarcode()">Barcode download</button>
-        </div>
-        <div id="qrcode-download" style="margin-top: 10px; display: none;">
-          <button onclick="downloadQRCode()">QRcode download</button>
-        </div>
         
 
         <canvas id="barcode-canvas" style="margin-top: 20px;"></canvas>
