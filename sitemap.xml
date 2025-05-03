@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset 
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- 홈페이지 -->
+  <url>
+    <loc>https://mycode12.com/</loc>
+    <priority>1.0</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- 인덱스 -->
+  <url>
+    <loc>https://mycode12.com/index.html</loc>
+    <priority>1.0</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- 개인정보 보호정책 -->
+  <url>
+    <loc>https://mycode12.com/privacy.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- 문의 -->
+  <url>
+    <loc>https://mycode12.com/contact.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- 계산기 -->
+  <url>
+    <loc>https://mycode12.com/cal.html</loc>
+    <priority>1.0</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- 바코드 생성기 -->
+  <url>
+    <loc>https://mycode12.com/tools.html</loc>
+    <priority>1.0</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+</urlset>
