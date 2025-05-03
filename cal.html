@@ -355,8 +355,8 @@
           <form oninput="calculatePercentageChange5()">
             <table border="0" cellspacing="10">
               <tr>
-                <td align="right"><label for="a-value5">Base Value (a):</label></td>
-                <td><input type="number" id="a-value5" name="a-value6" step="any"></td>
+                <td align="right"><label for="a-value6">Base Value (a):</label></td>
+                <td><input type="number" id="a-value6" name="a-value6" step="any"></td>
               </tr>
               <tr>
                 <td align="right"><label for="percent-value5">Rate of Change (%):</label></td>
@@ -1057,8 +1057,8 @@
         const finalInterest = principal * r * time;
         const finalTotal = principal + finalInterest;
     
-        interestResult.innerHTML = formatWithColoredDecimal(finalInterest2);
-        totalResult.innerHTML = formatWithColoredDecimal(finalTotal2);
+        interestResult.innerHTML = formatWithColoredDecimal(finalInterest);
+        totalResult.innerHTML = formatWithColoredDecimal(finalTotal);
     
         let html = `
           <table style="width:100%;border-collapse:collapse;margin-top:20px;">
