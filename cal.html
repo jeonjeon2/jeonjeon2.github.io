@@ -863,15 +863,15 @@
       const m = Math.floor(totalSeconds / 60);
       const s = totalSeconds % 60;
   
-      document.getElementById("sumResult2").textContent = `${h}Hour ${m}Minute ${s}Second`;
+      document.getElementById("sumResult5").textContent = `${h}Hour ${m}Minute ${s}Second`;
     }
   
     function diffTime5() {
-      const start = document.getElementById("startTime2").value;
-      const end = document.getElementById("endTime2").value;
+      const start = document.getElementById("startTime5").value;
+      const end = document.getElementById("endTime5").value;
   
       if (!start || !end) {
-        document.getElementById("diffResult2").textContent = "-";
+        document.getElementById("diffResult5").textContent = "-";
         return;
       }
   
@@ -885,34 +885,34 @@
       const hours = Math.floor(diff / 60);
       const minutes = diff % 60;
   
-      document.getElementById("diffResult2").textContent = `${hours}Hour ${minutes}Minute`;
+      document.getElementById("diffResult5").textContent = `${hours}Hour ${minutes}Minute`;
     }
 
     
     
     function countTextStats5() {
-      const text = document.getElementById("textInput2").value;
+      const text = document.getElementById("textInput5").value;
   
       const charCount = text.length;
       const charNoSpaceCount = text.replace(/\s/g, '').length;
       const wordCount = text.trim().length > 0 ? text.trim().split(/\s+/).length : 0;
       const lineCount = text === "" ? 0 : text.split(/\r\n|\r|\n/).length;
   
-      document.getElementById("charCount2").textContent = charCount;
-      document.getElementById("charNoSpaceCount2").textContent = charNoSpaceCount;
-      document.getElementById("wordCount2").textContent = wordCount;
-      document.getElementById("lineCount2").textContent = lineCount;
+      document.getElementById("charCount5").textContent = charCount;
+      document.getElementById("charNoSpaceCount5").textContent = charNoSpaceCount;
+      document.getElementById("wordCount5").textContent = wordCount;
+      document.getElementById("lineCount5").textContent = lineCount;
     }
     
     function calculateUnitPrice5() {
-      const priceA = parseFloat(document.getElementById("priceA2").value);
-      const amountA = parseFloat(document.getElementById("amountA2").value);
-      const priceB = parseFloat(document.getElementById("priceB2").value);
-      const amountB = parseFloat(document.getElementById("amountB2").value);
+      const priceA = parseFloat(document.getElementById("priceA5").value);
+      const amountA = parseFloat(document.getElementById("amountA5").value);
+      const priceB = parseFloat(document.getElementById("priceB5").value);
+      const amountB = parseFloat(document.getElementById("amountB5").value);
   
-      const resultA = document.getElementById("unitPriceA2");
-      const resultB = document.getElementById("unitPriceB2");
-      const betterDeal = document.getElementById("betterDeal2");
+      const resultA = document.getElementById("unitPriceA5");
+      const resultB = document.getElementById("unitPriceB5");
+      const betterDeal = document.getElementById("betterDeal5");
   
       let unitPriceA = null, unitPriceB = null;
   
@@ -945,9 +945,9 @@
     }
 
     function calculateChange5() {
-      const a = parseFloat(document.getElementById("a-value2").value);
-      const b = parseFloat(document.getElementById("b-value2").value);
-      const result = document.getElementById("result22");
+      const a = parseFloat(document.getElementById("a-value5").value);
+      const b = parseFloat(document.getElementById("b-value5").value);
+      const result = document.getElementById("result6");
   
       if (!isNaN(a) && !isNaN(b) && a !== 0) {
         const change = ((b - a) / a) * 100;
@@ -959,9 +959,9 @@
     }
 
     function calculatePercentageChange5() {
-      const a = parseFloat(document.getElementById("a-value22").value);
-      const percent = parseFloat(document.getElementById("percent-value2").value);
-      const result = document.getElementById("result22");
+      const a = parseFloat(document.getElementById("a-value6").value);
+      const percent = parseFloat(document.getElementById("percent-value5").value);
+      const result = document.getElementById("result6");
     
       if (!isNaN(a) && !isNaN(percent)) {
         const b = a * (1 + percent / 100);
@@ -973,11 +973,11 @@
 
     function calculateBMR5() {
       // 선택된 라디오 버튼 값 가져오기
-      const gender = document.querySelector('input[name="bmr-gender2"]:checked').value;
-      const age = parseFloat(document.getElementById("bmr-age2").value);
-      const height = parseFloat(document.getElementById("bmr-height2").value);
-      const weight = parseFloat(document.getElementById("bmr-weight2").value);
-      const result = document.getElementById("bmr-result2");
+      const gender = document.querySelector('input[name="bmr-gender5"]:checked').value;
+      const age = parseFloat(document.getElementById("bmr-age5").value);
+      const height = parseFloat(document.getElementById("bmr-height5").value);
+      const weight = parseFloat(document.getElementById("bmr-weight5").value);
+      const result = document.getElementById("bmr-result5");
     
       if (!isNaN(age) && !isNaN(height) && !isNaN(weight)) {
         let bmr;
@@ -993,8 +993,8 @@
     }
 
     function calculateDday5() {
-      const inputDate = document.getElementById("target-date2").value;
-      const result = document.getElementById("dday-result2");
+      const inputDate = document.getElementById("target-date5").value;
+      const result = document.getElementById("dday-result5");
   
       if (inputDate) {
         const today = new Date();
@@ -1017,9 +1017,9 @@
     }
     
     function calculateBMI5() {
-      const weight = parseFloat(document.getElementById("weight2").value);
-      const height = parseFloat(document.getElementById("height2").value);
-      const result = document.getElementById("bmi-result2");
+      const weight = parseFloat(document.getElementById("weight5").value);
+      const height = parseFloat(document.getElementById("height5").value);
+      const result = document.getElementById("bmi-result5");
   
       if (!isNaN(weight) && !isNaN(height) && height > 0) {
         const heightInMeters = height / 100;
@@ -1031,13 +1031,13 @@
     }
 
     function calculateSimpleInterest5() {
-      const principal = parseFloat(document.getElementById("principal2").value);
-      const rate = parseFloat(document.getElementById("rate2").value);
-      const time = parseFloat(document.getElementById("time2").value);
+      const principal = parseFloat(document.getElementById("principal5").value);
+      const rate = parseFloat(document.getElementById("rate5").value);
+      const time = parseFloat(document.getElementById("time5").value);
     
-      const interestResult = document.getElementById("interest-result2");
-      const totalResult = document.getElementById("total-result2");
-      const tableWrapper = document.getElementById("simple-table-wrapper2");
+      const interestResult = document.getElementById("interest-result5");
+      const totalResult = document.getElementById("total-result5");
+      const tableWrapper = document.getElementById("simple-table-wrapper5");
     
       if (!isNaN(principal) && !isNaN(rate) && !isNaN(time)) {
         const r = rate / 100;
@@ -1097,14 +1097,14 @@
     
 
     function calculateCompoundInterest5() {
-      const principal = parseFloat(document.getElementById("c-principal2").value);
-      const rate = parseFloat(document.getElementById("c-rate2").value);
-      const time = parseFloat(document.getElementById("c-time2").value);
-      const periodType = document.querySelector('input[name="c-period-type2"]:checked').value;
+      const principal = parseFloat(document.getElementById("c-principal5").value);
+      const rate = parseFloat(document.getElementById("c-rate5").value);
+      const time = parseFloat(document.getElementById("c-time5").value);
+      const periodType = document.querySelector('input[name="c-period-type5"]:checked').value;
 
-      const interestResult = document.getElementById("c-interest-result2");
-      const totalResult = document.getElementById("c-total-result2");
-      const tableWrapper = document.getElementById("c-table-wrapper2");
+      const interestResult = document.getElementById("c-interest-result5");
+      const totalResult = document.getElementById("c-total-result5");
+      const tableWrapper = document.getElementById("c-table-wrapper5");
 
       if (!isNaN(principal) && !isNaN(rate) && !isNaN(time)) {
         const periods = Math.floor(time);
