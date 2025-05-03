@@ -346,7 +346,7 @@
                 <td><input type="number" id="b-value2" name="b-value2" step="any"></td>
               </tr>
             </table>
-            <p>Rate of Change:&nbsp;&nbsp;&nbsp;<strong id="result2">-</strong></p>
+            <p>Rate of Change:&nbsp;&nbsp;&nbsp;<strong id="result22">-</strong></p>
           </form>
         </div>
 
@@ -947,7 +947,7 @@
     function calculateChange2() {
       const a = parseFloat(document.getElementById("a-value2").value);
       const b = parseFloat(document.getElementById("b-value2").value);
-      const result = document.getElementById("result2");
+      const result = document.getElementById("result22");
   
       if (!isNaN(a) && !isNaN(b) && a !== 0) {
         const change = ((b - a) / a) * 100;
