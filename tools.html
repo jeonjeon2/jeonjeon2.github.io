@@ -16,14 +16,14 @@
 
   <main class="tools-container">
     <section class="tool-box">
-      <h2>바코드 & QR코드 생성기</h2>
+      <h2>Barcode & QRcode 생성기(Generator)</h2>
 
       <div class="code-generator">
-        <label><input type="radio" name="code-type" value="barcode" checked onchange="toggleMode()"> 바코드</label>
-        <label><input type="radio" name="code-type" value="qrcode" onchange="toggleMode()"> QR코드</label>
+        <label><input type="radio" name="code-type" value="barcode" checked onchange="toggleMode()"> Barcode</label>
+        <label><input type="radio" name="code-type" value="qrcode" onchange="toggleMode()"> QRcode</label>
 
         <div id="barcode-options" style="margin-top: 10px;">
-          <label for="barcode-format">바코드 유형:&nbsp;&nbsp;</label>
+          <label for="barcode-format">Type:&nbsp;&nbsp;</label>
           <select id="barcode-format">
             <option value="CODE128">CODE128 auto</option>
             <option value="CODE128A">CODE128 A</option>
@@ -45,17 +45,17 @@
         </div>
 
         <p>
-          <label for="input-value" style="margin-top: 10px;">코드 값 입력:&nbsp;&nbsp;</label>
-          <input type="text" id="input-value" placeholder="예: 123456789012" />
+          <label for="input-value" style="margin-top: 10px;">Value:&nbsp;&nbsp;</label>
+          <input type="text" id="input-value" placeholder="ex: 123456789012" />
           &nbsp;&nbsp;
-          <button onclick="generate()" style="margin-top: 10px;">생성</button>
+          <button onclick="generate()" style="margin-top: 10px;">Generator</button>
         </p>
         <!-- 다운로드 버튼들 -->
         <div id="barcode-download" style="margin-top: 10px;">
-          <button onclick="downloadBarcode()">바코드 다운로드</button>
+          <button onclick="downloadBarcode()">Barcode download</button>
         </div>
         <div id="qrcode-download" style="margin-top: 10px; display: none;">
-          <button onclick="downloadQRCode()">QR코드 다운로드</button>
+          <button onclick="downloadQRCode()">QRcode download</button>
         </div>
         
 
@@ -102,7 +102,7 @@
     function generate() {
       const value = document.getElementById("input-value").value.trim();
       if (!value) {
-        alert("코드 값을 입력하세요.");
+        alert("코드 값을 입력하세요. (Please enter a code value.)");
         return;
       }
 
@@ -134,7 +134,7 @@
       const canvas = document.getElementById("barcode-canvas");
     
       if (!value || canvas.style.display === "none") {
-        return alert("생성된 바코드가 없습니다.");
+        return alert("생성된 바코드가 없습니다. (No barcodes were created.)");
       }
     
       const link = document.createElement("a");
@@ -146,7 +146,7 @@
     function downloadQRCode() {
       const qrcodeDiv = document.getElementById("qrcode");
       const img = qrcodeDiv.querySelector("img");
-      if (!img || qrcodeDiv.style.display === "none") return alert("QR코드가 없습니다.");
+      if (!img || qrcodeDiv.style.display === "none") return alert("생성된 QR코드가 없습니다. (There is no QR code created.)");
       const link = document.createElement("a");
       link.download = "qrcode.png";
       link.href = img.src;
