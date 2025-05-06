@@ -126,5 +126,21 @@
     <p>Financial gains are taxed, so it is wise to utilize <strong>tax-free accounts</strong> (e.g., ISA) or <strong>deductible accounts</strong> (e.g., pension savings) to minimize taxes.</p>
   </div>
   <div id="footer"></div>
+
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // Load footer
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
 </body>
 </html>
